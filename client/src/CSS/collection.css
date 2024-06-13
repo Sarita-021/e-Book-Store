@@ -1,0 +1,22 @@
+.size {
+    min-height: 70vh;
+}
+
+.collection {
+    position: relative;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.collection .title {
+    padding: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: darkblue;
+}
+
+.collection .text-4xl {
+    font-size: 20px;
+    font-weight: bold;
+}

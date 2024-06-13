@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.about-us-section {
+    background-color: #ececefe8;
+    padding: 20px 0px 70px;
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Edu SA Beginner', cursive !important;
+}
+
+.about-us-section .title {
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+    margin: 0px;
+    font-size: 50px;
+    padding: 50px;
+    font-weight: bolder;
+    position: relative;
+    text-align: center;
+    color: #5a595b;
+}
+
+.about-us-section .container {
+    width: 80%;
+    box-sizing: border-box;
+    position: relative;
+    justify-content: center;
+    padding: 50px;
+    border-radius: 0;
+    display: flex;
+    gap: 20px;
+    text-align: left;
+}
+
+.about-us-section ._1 {
+    background-color: #84c4fc;
+    box-shadow: 2px 5px 10px #B0DAFF;
+    margin: 40px 0px 40px auto;
+    color: #1a88e9;
+}
+
+
+.about-us-section ._2 {
+    background-color: #ae9fe7;
+    box-shadow: 2px 5px 10px #ae9fe7;
+    margin: 40px auto 40px 0;
+    color: #5e46be;
+}
+
+.about-us-section ._3 {
+    background-color: #b4e1fa;
+    box-shadow: 2px 5px 10px #b4e1fadc;
+    margin: 40px 0px 40px auto;
+    color: #3a99cf;
+}
+
+.about-us-section ._4 {
+    background-color: #ACBCFF;
+    box-shadow: 2px 5px 10px #ACBCFF;
+    margin: 40px auto 40px 0px;
+    color: #6684f9;
+}
+
+.about-us-section ._5 {
+    background-color: #d0e8f5;
+    box-shadow: 2px 5px 10px #d0e8f5;
+    margin: 40px 0px 0px auto;
+    color: #2dabef;
+}
+
+
+.about-us-section ._1 .heading1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(253, 253, 253);
+    padding: 20px;
+
+}
+
+.content {
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(46, 46, 96);
+}

@@ -1,0 +1,153 @@
+.auth-form-container {
+    position: relative;
+    box-sizing: border-box;
+    padding: 50px;
+    width: 100%;
+}
+
+body {
+    background-color: #080710;
+    position: relative;
+}
+
+.form {
+    background-color: rgba(255, 255, 255, 0.13);
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    left: 10%;
+    width: 80%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    display: flex;
+    flex-direction: row;
+}
+
+.separateL {
+    width: 50%;
+    position: relative;
+    top: 140px;
+}
+
+.separateR {
+    margin-left: 10px;
+    width: 50%;
+}
+
+.change {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 14px;
+}
+
+.link-btn {
+    margin-left: 15px;
+}
+
+.login-form h3, .register-form h3 {
+    font-weight: bold;
+    margin-top: 100px;
+    font-size: 1.5rem;
+}
+
+.login-form h1, .register-form h1 {
+    align-items: center;
+    padding-top: 20px;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    color: #1d4395;
+    margin-bottom: 30px;
+}
+
+.tagline {
+    font-size: 14px;
+}
+
+.label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.input {
+    display: block;
+    height: 35px;
+    width: 80%;
+    background-color: rgba(252, 251, 251);
+    border-radius: 1px solid gray;
+    color: gray;
+    padding: 0 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: #808080;
+}
+
+.form .btn {
+    margin-top: 30px;
+    width: 100px;
+    background-color: #1d4395d1;
+    border-radius: 80px;
+    color: #f7f6fc;
+    padding: 7px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.link-btn {
+    background: white;
+    border: 1px solid #080710;
+    height: 30px;
+    width: 100px;
+    border-radius: 50px;
+    color: rgb(14, 13, 13);
+}
+
+.auth-img {
+    width: 90%;
+}
+
+@media only screen and (max-width: 900px) {
+    .form {
+        position: relative;
+        left: 0;
+        width: 100%;
+    }
+
+    .auth-form-container {
+        padding: 30px;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .input {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .separateL {
+       width: 0;
+       height: 0;
+    }
+
+    .separateR {
+        width: 90%;
+    }
+
+    .input {
+        width: 100%;
+    }
+}

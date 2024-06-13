@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+body {
+    background-color: #ffffff !important;
+}
+
+.aBH1 {
+    color: #1f0662;
+    font-weight: bolder;
+    border-bottom: 4px solid #180255;
+}
+
+.srch {
+    width: 200px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    margin-right: 15px;
+    margin-left: auto;
+    align-items: end;
+    justify-content: left;
+    right: 0;
+    left: auto;
+}
+
+.container {
+    border-radius: 12px;
+    text-align: center;
+    width: 150px;
+    position: relative;
+    margin: 10px 5px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ece8e8da;
+    transition: all 0.4s ease-out;
+    box-shadow: 2px 5px 10px rgba(145, 145, 145, 0.502);
+}
+
+.container .box-image img {
+    display: inline-block;
+    width: 100%;
+    transition: all 0.4s ease-out;
+    display: inline-block;
+}
+
+.container .box-image .scart {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    display: inline-block;
+    position: absolute;
+    background-color: white;
+    z-index: 999;
+    top: 10px;
+    left: 10px;
+}
+
+.container .box-image .scart .cart {
+    color: rgb(64, 64, 119);
+    width: 24px;
+}
+
+.container .box-text {
+    padding: 0 15px 20px;
+}
+
+.container .box-text .name {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    height: 50px;
+    padding-top: 10px;
+    color: #02052b;
+}
+
+.container .box-text .catg {
+    color: #757575;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 0;
+    letter-spacing: 1.5px;
+    width: 100%;
+}
+
+.container .box-text .btn {
+    color: #52389b;
+    padding: 1px 8px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 100%;
+    border: 3px solid #1d4395d1;
+}
+
+.container .box-text .btn:hover {
+    transform: scale(1.125);
+    color: #e1e8f7;
+    background-color: #52389b;
+    filter: drop-shadow(0 3px 3px #52389b);
+    transition: all .5s ease-in-out;
+    border: 3px solid #52389b;
+}
+
+.filterBtn {
+    overflow: scroll;
+    margin-bottom: 50px;
+}
+
+.filterBtn .btn {
+    margin: 10px;
+    background-color: #eef5fc;
+    color: #264d8b;
+    border: 1px solid #264d8b;
+    letter-spacing: 1px;
+    line-height: 5px;
+    border-radius: 10px;
+    width: auto;
+    width: auto;
+    height: 30px;
+    /* overflow: scroll; */
+    white-space: nowrap;
+}
+
+.filterBtn::-webkit-scrollbar {
+    display: none;
+}
