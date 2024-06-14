@@ -32,10 +32,12 @@ app.use(cors(
         methods: ["POST", "GET"],
         credentials: true
     }
+
 ))
 
 app.get("/", (req, res) => {
     res.send("Hello from server!");
+
 });
 
 

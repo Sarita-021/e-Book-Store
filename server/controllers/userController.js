@@ -3,7 +3,10 @@ const bcrypt = require("bcrypt")
 
 //create user register user
 exports.registerController = async (req, res) => {
+    console.log("jdhfkjdshfjkhs")
     try {
+
+        console.log("hello i am reagiij")
         const { username, email, password } = req.body
         //validation 
         if (!username || !email || !password) {
