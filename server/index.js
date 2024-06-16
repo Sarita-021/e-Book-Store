@@ -28,8 +28,8 @@ app.use(morgan('dev'))
 app.use('/api/v1/user', userRoutes)
 app.use(cors(
     {
-        origin: ["https://e-book-store-bsk3.vercel.app/"],
-        methods: ["POST", "GET"],
+        origin: 'https://e-book-store-bsk3.vercel.app/',
+        methods: ['GET', 'POST', 'OPTIONS'],
         credentials: true
     }
 
