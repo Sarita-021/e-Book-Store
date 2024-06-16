@@ -1,6 +1,6 @@
 {
     "name": "client",
-    "proxy": "https://e-book-store-ten.vercel.app/api/v1/user",
+    "proxy": "https://e-book-store-ten.vercel.app/",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
