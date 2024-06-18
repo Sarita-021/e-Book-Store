@@ -3,10 +3,9 @@ const bcrypt = require("bcrypt")
 
 //create user register user
 exports.registerController = async (req, res) => {
-    console.log("jdhfkjdshfjkhs")
+
     try {
 
-        console.log("hello i am reagiij")
         const { username, email, password } = req.body
         //validation 
         if (!username || !email || !password) {
@@ -16,7 +15,7 @@ exports.registerController = async (req, res) => {
             })
         }
 
-        // exisiting user 
+        // check exisiting user 
         const exisitingUser = await userModel.findOne({ email })
         if (exisitingUser) {
             return res.status(401).send({
@@ -24,6 +23,8 @@ exports.registerController = async (req, res) => {
                 message: 'user already exisits'
             })
         }
+
+        //Password encryption
         const hashedPassword = await bcrypt.hash(password, 10)
 
 
