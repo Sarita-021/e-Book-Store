@@ -10,6 +10,10 @@ body {
     position: relative;
 }
 
+.forgotPwd {
+    margin-top: 20px;
+}
+
 .form {
     background-color: rgba(255, 255, 255, 0.13);
     position: relative;

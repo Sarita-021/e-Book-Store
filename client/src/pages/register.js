@@ -8,50 +8,29 @@ import PasswordChecklist from "react-password-checklist";
 
 function Register(props) {
 
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordShown, setPasswordShown] = useState(false);
-    const [pmatch, setpmatch] = useState(false);
+    const navigate = useNavigate();
 
-    //Handle Password
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-        setInputs((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
-    };
-
-    //Handle Confirm Password
-    const handleConfirmPassword = (e) => {
-        setConfirmPassword(e.target.value);
-        setInputs((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
-    };
-
-
-    // Password Show
+    // Function to Show and hide Password
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
     };
 
-    //Handle Submit
+    //Handling Submit button
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (inputs.password === inputs.confirmPassword) {
+        if (inputs.password === inputs.confirmPassword) {    //matching password and confirm password
             try {
                 console.log("hello", inputs.name)
-                const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/register', {
-                    username: inputs.name,
+                const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/register', {         // Calling register route
+                    username: inputs.name,                  //Sending username, email and password to backend to perform required actions
                     email: inputs.email,
                     password: inputs.password
                 });
                 if (data.success) {
                     alert("user registered successfully");
-                    navigate("/login");
+                    navigate("/login");             //After successful registeration navigating to login page
                 }
             } catch (error) {
                 alert(error);
@@ -59,12 +38,11 @@ function Register(props) {
             }
         }
         else {
-            alert("Password does not match!!!");
+            alert("Password does not match!!!");        //telling user that password does not match
         }
     }
 
-    const navigate = useNavigate();
-
+    //Constants for Storing inputs
     const [inputs, setInputs] = useState({
         name: '',
         email: '',
@@ -72,6 +50,7 @@ function Register(props) {
         confirmPassword: ''
     })
 
+    //Handling input changes
     const handleChange = (e) => {
         setInputs((prevState) => ({
             ...prevState,
@@ -110,10 +89,10 @@ function Register(props) {
                             <input className="input" onChange={handleChange} value={inputs.email} type="email" placeholder="your-email@gmail.com" id="email" name="email" />
 
                             <label className="label" htmlFor="password">Password</label>
-                            <input className="input" onChange={handlePassword} value={inputs.password} type={passwordShown ? "text" : "password"} placeholder="********" id="password" name="password" />
+                            <input className="input" onChange={handleChange} value={inputs.password} type={passwordShown ? "text" : "password"} placeholder="********" id="password" name="password" />
 
                             <label className="label" htmlFor="confirmPassword">Confirm Password</label>
-                            <input className="input" onChange={handleConfirmPassword} value={inputs.confirmPassword} type={passwordShown ? "text" : "password"} placeholder="********" id="confirmPassword" name="confirmPassword" />
+                            <input className="input" onChange={handleChange} value={inputs.confirmPassword} type={passwordShown ? "text" : "password"} placeholder="********" id="confirmPassword" name="confirmPassword" />
 
                             <div className="passwordShow">
                                 <FormControlLabel

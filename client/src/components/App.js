@@ -8,10 +8,15 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import Footer from "../components/footer";
 import AllBooks from "../pages/allbooks";
-import Collection from "../pages/collection"
-import About from "../pages/about"
+import Collection from "../pages/collection";
+import About from "../pages/about";
 
+import { useState, createContext } from "react";
+import OTPInput from "../pages/OTPInput";
+import Recovered from "../pages/recovered";
+import Reset from "../pages/reset";
 
+export const RecoveryContext = createContext();
 function App() {
 
     return (
@@ -25,6 +30,9 @@ function App() {
                     <Route exact path="/register" element={<Register />} />
                     <Route exact path="/allBooks" element={<AllBooks />} />
                     <Route exact path="/collection" element={<Collection />} />
+                    <Route exact path="/OTPInput" element={<OTPInput />} />
+                    <Route exact path="/reset" element={<Reset />} />
+                    <Route exact path="/recovered" element={<Recovered />} />
                 </Routes>
             </Router>
             <Footer />

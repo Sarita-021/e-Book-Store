@@ -5,8 +5,6 @@ import Buttons from "./button";
 
 import { NavLink, useNavigate } from "react-router-dom";
 
-
-
 function AllBooks() {
 
     const [item, setItem] = useState(bookspedia);
@@ -23,8 +21,6 @@ function AllBooks() {
 
         setItem(newItem);
     };
-
-
 
     const [searchField, setSearchField] = useState("");
     const [searchShow, setSearchShow] = useState(false);
