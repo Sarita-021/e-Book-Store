@@ -66,7 +66,6 @@ function Login(props) {
                 recp_email: inputs.email, Otp: OTP
             };
             //  Mail sent 
-            console.log("jksdfhjks")
             if (data.success) {
                 alert(data.message);
                 toast.success("Mail Sent Successfully");

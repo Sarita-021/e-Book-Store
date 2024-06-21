@@ -16,7 +16,7 @@ exports.registerController = async (req, res) => {
         if (!username || !email || !password) {
             return res.status(400).send({
                 success: false,
-                message: "Please Fill all exisits"
+                message: "Please Fill all exists"
             })
         }
 
@@ -25,7 +25,7 @@ exports.registerController = async (req, res) => {
         if (exisitingUser) {
             return res.status(401).send({
                 success: false,
-                message: 'user already exisits'
+                message: 'User already exists'
             })
         }
 
@@ -58,7 +58,7 @@ exports.getALLUsers = async (req, res) => {
         return res.status(200).send({
             userCount: users.length,
             success: true,
-            message: 'all user data',
+            message: 'All user data',
             users
         })
     } catch (error) {
@@ -81,9 +81,9 @@ exports.loginController = async (req, res) => {
 
         //validating if user entered both
         if (!email || !password) {
-            return res.status(401).send({
+            return res.status(200).send({
                 success: false,
-                message: "please provide email or password"
+                message: "Please enter email and password"
             })
         }
 
@@ -93,7 +93,7 @@ exports.loginController = async (req, res) => {
         if (!user) {    //handling if user does not exists
             return res.status(200).send({
                 success: true,
-                message: 'email is not registered'
+                message: 'Email is not registered'
             })
         }
 
@@ -107,7 +107,7 @@ exports.loginController = async (req, res) => {
         }
         return res.status(200).send({       //All credentials matched
             success: true,                  //user ready for login
-            message: 'login successfully',
+            message: 'Login successfully',
             user
         })
     } catch (error) {                       //handling unexpected errors
@@ -135,22 +135,23 @@ exports.OTPController = async (req, res) => {
     try {
 
         //Fetchig variables for required to send otp
-        const { email, OTP, Procedure } = req.body
+        const { email, OTP, procedure } = req.body;
 
         //Checking if user has entered mailId or not
         if (!email) {
-            return res.status(401).send({
+            return res.status(200).send({
                 success: false,
-                message: "Please Enter Email "
+                message: "Please Enter Your Email"
             })
         }
 
         // Checking if user already exists
         const user = await userModel.findOne({ email })
+        console.log(user)
         if (!user) {
-            return res.status(401).send({
-                success: true,
-                message: 'email is not registered'
+            return res.status(200).send({
+                success: false,
+                message: 'Email is not registered'
             })
         }
 
@@ -172,12 +173,12 @@ exports.OTPController = async (req, res) => {
             const info = await transporter.sendMail({
                 from: process.env.MY_EMAIL, // sender address
                 to: email,                  // receiver
-                subject: "OTP for " + { Procedure }, // Subject line
+                subject: procedure, // Subject line
                 html: `<!DOCTYPE html>
                   <html lang="en" >
                   <head>
                     <meta charset="UTF-8">
-                    <title>CodePen - OTP Email Template</title>
+                    <title>OTP Email Template</title>
                     
                   
                   </head>
@@ -189,7 +190,7 @@ exports.OTPController = async (req, res) => {
                         <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">BookRaze</a>
                       </div>
                       <p style="font-size:1.1em">Hi,</p>
-                      <p>Thank you for choosing BookRaze. Use the following OTP to complete your ${Procedure}. OTP is valid for 5 minutes</p>
+                      <p>Thank you for choosing BookRaze. Use the following OTP to complete your Password. OTP is valid for 5 minutes</p>
                       <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">${OTP}</h2>
                       <p style="font-size:0.9em;">Regards,<br />BookRaze</p>
                       <hr style="border:none;border-top:1px solid #eee" />
@@ -212,7 +213,7 @@ exports.OTPController = async (req, res) => {
         main().catch(console.error);
         return res.status(200).send({
             success: true,
-            message: 'Mail sent '
+            message: 'Mail sent'
         })
 
     } catch (error) {
@@ -237,7 +238,7 @@ exports.updatePassword = async (req, res) => {
         if (!password) {
             return res.status(401).send({
                 success: false,
-                message: "please provide new password"
+                message: "Please provide new password"
             })
         }
 
@@ -253,7 +254,7 @@ exports.updatePassword = async (req, res) => {
             $set: { password: hashedPassword }
         });
 
-        console.log("password updated");
+        console.log("Password updated");
         await user.save()    //Saving updated password
         return res.status(201).send({
             success: true,
