@@ -21,9 +21,11 @@ function Register(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (inputs.password === inputs.confirmPassword) {    //matching password and confirm password
+        if (errorMessage === "Please enter strong password!!") {
+            toast.error("Please enter strong password!!")
+        }
+        else if (inputs.password === inputs.confirmPassword) {    //matching password and confirm password
             try {
-                console.log("hello", inputs.name)
                 const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/register', {         // Calling register route
                     username: inputs.name,                  //Sending username, email and password to backend to perform required actions
                     email: inputs.email,
@@ -34,7 +36,7 @@ function Register(props) {
                     toast.success(data.message);
                     navigate("/login");             //After successful registeration navigating to login page
                 }
-                toast.error(data.message)
+                else { toast.error(data.message) }
             } catch (error) {
                 alert(error);
                 console.log(error);
@@ -59,6 +61,20 @@ function Register(props) {
             ...prevState,
             [e.target.name]: e.target.value
         }))
+    }
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const validatePassword = (e) => {
+        setInputs((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }))
+        if (inputs.password.length < 8 || !/\d/.test(inputs.password) || !/[A-Z]/.test(inputs.password) || !/[a-z]/.test(inputs.password) || !/[0-9]/.test(inputs.password)) {
+            setErrorMessage('Please enter strong password!!')
+        }
+        else {
+            setErrorMessage("Strong password!!!");
+        }
     }
 
     return (
@@ -86,16 +102,20 @@ function Register(props) {
 
                         <div className="inputContainer">
                             <label className="label" htmlFor="name">Full name</label>
-                            <input className="input" onChange={handleChange} value={inputs.name} name="name" id="name" placeholder="Enter Your Name" />
+                            <input className="input" onChange={handleChange} value={inputs.name} name="name" id="name" placeholder="Enter Your Name" required />
 
                             <label className="label" htmlFor="email">E-mail</label>
-                            <input className="input" onChange={handleChange} value={inputs.email} type="email" placeholder="your-email@gmail.com" id="email" name="email" />
+                            <input className="input" onChange={handleChange} value={inputs.email} type="email" placeholder="your-email@gmail.com" id="email" name="email" required />
 
                             <label className="label" htmlFor="password">Password</label>
-                            <input className="input" onChange={handleChange} value={inputs.password} type={passwordShown ? "text" : "password"} placeholder="********" id="password" name="password" />
+                            <input className="input" onChange={validatePassword}
+                                value={inputs.password} type={passwordShown ? "text" : "password"}
+                                placeholder="********" id="password" name="password"
+                                required minLength={8} />
+                            <div style={{ color: "red" }}> {errorMessage} </div>
 
                             <label className="label" htmlFor="confirmPassword">Confirm Password</label>
-                            <input className="input" onChange={handleChange} value={inputs.confirmPassword} type={passwordShown ? "text" : "password"} placeholder="********" id="confirmPassword" name="confirmPassword" />
+                            <input className="input" onChange={handleChange} value={inputs.confirmPassword} type={passwordShown ? "text" : "password"} placeholder="********" id="confirmPassword" name="confirmPassword" required />
 
                             <div className="passwordShow">
                                 <FormControlLabel

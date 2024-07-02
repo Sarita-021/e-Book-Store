@@ -96,7 +96,7 @@ function Login(props) {
                         <p className="tagline">Dicover a world of stories </p>
                         <h1>Login</h1>
                         <label className="label" htmlFor="email">User Email</label>
-                        <input className="input" onChange={handleChange} value={inputs.email} type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+                        <input className="input" onChange={handleChange} value={inputs.email} type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
                         <label className="label" htmlFor="password">Password</label>
                         <input className="input" onChange={handleChange} value={inputs.password} type="password" placeholder="********" id="password" name="password" />
                         <p className="forgotPwd"><a href="#" onClick={() => nagigateToOtp()} > Forgot password?</a></p>
