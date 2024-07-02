@@ -1,13 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
+import "../CSS/OTPInput.css";
 
 function OTPInput() {
 
     const [timerCount, setTimer] = React.useState(60);
-    const [OTPinput, setOTPinput] = useState([0, 0, 0, 0]);
+    const [otp, setotp] = useState(new Array(4).fill(""));
     const [disable, setDisable] = useState(true);
     const navigate = useNavigate();
 
@@ -32,20 +33,12 @@ function OTPInput() {
         };
         //  Mail sent 
         if (data.success) {
-            toast.promise(data.success,
-                {
-                    loading: 'Sending OTP...',
-                    success: <b>New OTP Sent!</b>,
-                });
+            toast.success(data.message);
             navigate("/OTPInput", { state: da });
         }
         // Mail send error
         else {
-            toast.promise(data.success,
-                {
-                    loading: 'Sending OTP...',
-                    error: <b>Error  in sending new otp</b>,
-                });;
+            toast.error(data.message);;
         }
     }
 
@@ -54,14 +47,13 @@ function OTPInput() {
         const da = {       //creating constant to store user details
             recp_email: recp_email,
         };
-        if (parseInt(OTPinput.join("")) === Otp) {
+        if (parseInt(otp.join("")) === Otp) {
             navigate("/reset", { state: da });   //passing the mail to the reset route
             return;
         }
         toast.error('OOPS!! incorrect OTP, try again')
         return;
     }
-
 
     // Timer for resend otp mail
     useEffect(() => {
@@ -77,56 +69,77 @@ function OTPInput() {
         return () => clearInterval(interval);
     }, [disable]);
 
+    const handleotp = (e, index, key) => {
+        if (isNaN(e.target.value)) return false;
+        setotp([
+            ...otp.map((data, indx) => (indx === index ? e.target.value : data))
+        ])
+        console.log(e)
+        if (e.target.value && e.target.nextSibling) {
+            e.target.nextSibling.focus()
+        }
+    }
+
     return (
-        <div className="">
-            <div className="">
-                <div className="">
-                    <p>Email Verification</p>
+        <div className="main-container">
+            <div className="box-container">
+                <div className="heading">
+                    <h1 style={{ fontSize: "2rem", lineHeight: "1rem" }}>Email Verification</h1>
+                    <h4 style={{ color: "gray", fontSize: "14px", lineHeight: "4rem" }}>We have sent a code to your email {recp_email}</h4>
                 </div>
-                <div className="">
-                    <p>We have sent a code to your email {recp_email}</p>
-                </div>
-            </div>
 
-            <div>
-                <form>
-                    <div className="">
-                        <div className="">
-                            <div className="">
-                                <input maxLength="1" className="" type="text" name="" id="" onChange={(e) => setOTPinput([e.target.value, OTPinput[1], OTPinput[2], OTPinput[3]])}></input>
+                <div>
+                    <form>
+                        <div className="otp-container">
+                            {/* <div className="inp-container">
+                                <input maxLength="1" className="inpBox" type="text" name="" id="B1" length="1" autoFocus onkeyup={() => moveToNext('B-2')}
+                                    onChange={(e) => {
+                                        setOTPinput([e.target.value, OTPinput[1], OTPinput[2], OTPinput[3]])
+                                        moveToNext('B-2')
+                                        // setCursor('B2')
+                                    }}>
+                                </input>
+                                <input maxLength="1" className="inpBox" type="text" name="" id="B2" length="1" onKeyUp={() => moveToNext('B-3')}
+                                    onChange={(e) => setOTPinput([OTPinput[0], e.target.value, OTPinput[2], OTPinput[3]])}>
+                                </input>
+                                <input maxLength="1" className="inpBox" type="text" name="" id="B3" length="1" onkeyup={() => moveToNext('B-4')}
+                                    onChange={(e) => setOTPinput([OTPinput[0], OTPinput[1], e.target.value, OTPinput[3]])}>
+                                </input>
+                                <input maxLength="1" className="inpBox" type="text" name="" id="B4" length="1"
+                                    onChange={(e) => setOTPinput([OTPinput[0], OTPinput[1], OTPinput[2], e.target.value,])}
+                                ></input>
+                            </div> */}
+                            <div className="inp-container">
+                                {otp.map((data, i) => {
+                                    return <input type="text"
+                                        maxLength={1}
+                                        className="inpBox"
+                                        value={data}
+                                        onChange={(e) => handleotp(e, i)}
+                                    />
+                                })}
                             </div>
-                            <div className=" ">
-                                <input maxLength="1" className="" type="text" name="" id="" onChange={(e) => setOTPinput([OTPinput[0], e.target.value, OTPinput[2], OTPinput[3]])}></input>
-                            </div>
-                            <div className="">
-                                <input maxLength="1" className="" type="text" name="" id="" onChange={(e) => setOTPinput([OTPinput[0], OTPinput[1], e.target.value, OTPinput[3]])}></input>
-                            </div>
-                            <div className=" ">
-                                <input maxLength="1" className="" type="text" name="" id="" onChange={(e) => setOTPinput([OTPinput[0], OTPinput[1], OTPinput[2], e.target.value,])}></input>
+
+                            <div className="btm-container">
+                                <button onClick={() => verfiyOTP()} className="btn"> Verify Account </button>
+
+                                <div className="resend-container">
+                                    <p>Didn't recieve code?</p>{" "}
+                                    <p className="resend-btn"
+                                        style={{
+                                            color: disable ? "gray" : "blue",
+                                            cursor: disable ? "none" : "pointer",
+                                            textDecorationLine: disable ? "none" : "underline",
+                                        }}
+                                        onClick={() => resendOTP()}
+                                    >
+                                        {disable ? `Resend OTP in ${timerCount}s` : "Resend OTP"}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-
-                        <div className="">
-                            <div>
-                                <a onClick={() => verfiyOTP()} className=""> Verify Account </a>
-                            </div>
-
-                            <div className="">
-                                <p>Didn't recieve code?</p>{" "}
-                                <a className=""
-                                    style={{
-                                        color: disable ? "gray" : "blue",
-                                        cursor: disable ? "none" : "pointer",
-                                        textDecorationLine: disable ? "none" : "underline",
-                                    }}
-                                    onClick={() => resendOTP()}
-                                >
-                                    {disable ? `Resend OTP in ${timerCount}s` : "Resend OTP"}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     );

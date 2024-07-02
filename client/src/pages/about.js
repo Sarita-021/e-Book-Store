@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/about.css"
+import "../CSS/about.css";
 
 function About() {
     return (<div class="about-us-section">
@@ -16,7 +16,7 @@ function About() {
                 </p>
             </div>
         </div>
-        <div className="container _2" data-aos="fade-right"> 
+        <div className="container _2" data-aos="fade-right">
             <div>
                 <h2 className="heading"> Join Us on this Literary Adventure: </h2>
                 <p className="content">

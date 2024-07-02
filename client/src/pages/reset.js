@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import Checkbox from '@mui/material/Checkbox';
 import { useNavigate, useLocation } from "react-router-dom";
 import FormControlLabel from '@mui/material/FormControlLabel';
+import "../CSS/reset.css";
 
 export default function Reset() {
 
@@ -53,7 +54,7 @@ export default function Reset() {
                     toast.error(data.message);
                 }
             } catch (error) {   //Handling the error
-                toast.error(error);
+                alert(error);
                 console.log(error);
             }
         }
@@ -65,36 +66,34 @@ export default function Reset() {
 
     return (
         <div>
-            <section className="">
-                <div className="">
-                    <div className="">
-                        <h2 className=""> Change Password </h2>
-                        <form className="">
-                            <div>
-                                <label className="label" htmlFor="password">Password</label>
-                                <input className="input" onChange={handleChaange} value={inputs.password} type={passwordShown ? "text" : "password"} placeholder="********" id="password" name="password" />
+            <div className="main-container">
+                <div className="box-container">
+                    <h2 className=""> Change Password </h2>
+                    <form className="">
+                        <div>
+                            <label className="label" htmlFor="password">Password</label>
+                            <input className="input" onChange={handleChaange} value={inputs.password} type={passwordShown ? "text" : "password"} placeholder="********" id="password" name="password" />
 
-                                <label className="label" htmlFor="confirmPassword">Confirm Password</label>
-                                <input className="input" onChange={handleChaange} value={inputs.confirmPassword} type={passwordShown ? "text" : "password"} placeholder="********" id="confirmPassword" name="confirmPassword" />
+                            <label className="label" htmlFor="confirmPassword">Confirm Password</label>
+                            <input className="input" onChange={handleChaange} value={inputs.confirmPassword} type={passwordShown ? "text" : "password"} placeholder="********" id="confirmPassword" name="confirmPassword" />
 
-                            </div>
-                            <div className="passwordShow">
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            name="checkedB"
-                                            color="primary"
-                                        />
-                                    }
-                                    onClick={togglePassword}
-                                />
-                                <p className="pStyle">Show Password</p>
-                            </div>
-                        </form>
-                        <button onClick={() => handleSubmit()} className="" > Reset passwod </button>
-                    </div>
+                        </div>
+                        <div className="passwordShow">
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        name="checkedB"
+                                        color="primary"
+                                    />
+                                }
+                                onClick={togglePassword}
+                            />
+                            <p className="pStyle">Show Password</p>
+                        </div>
+                    </form>
+                    <button onClick={() => handleSubmit()} className="btn" > Reset passwod </button>
                 </div>
-            </section>
+            </div>
         </div>
     );
 }
