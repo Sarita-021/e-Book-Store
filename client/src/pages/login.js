@@ -21,13 +21,12 @@ function Login(props) {
             window.localStorage.setItem("islogin", true);                           // storing if login status is true or false
             // login credentials found 
             if (data.success) {
-                alert(data.message);
-                toast.success("User login Successfully");
+                toast.success(data.message)
                 navigate("/");              //After successfull login navigate to home screen
             }
             // if user data not found or incorrect 
             else {
-                alert(data.message);
+                toast.error(data.message);
             }
         } catch (error) {
             console.log(error);
@@ -67,15 +66,15 @@ function Login(props) {
             };
             //  Mail sent 
             if (data.success) {
-                alert(data.message);
-                toast.success("Mail Sent Successfully");
+                toast.success(data.message);
                 navigate("/OTPInput", { state: da });  //Navigating to otpinput and sending email and otp to otpinput page
             }
             // Mail send error
             else {
-                alert(data.message);
+                toast.error(data.message);
             }
         } catch (error) {
+            alert(error);
             console.log(error);
 
         }

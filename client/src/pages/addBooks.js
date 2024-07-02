@@ -61,7 +61,6 @@ function AddBooks(props) {
             console.log(response.data.success);
             console.log(response.success);
             if (response.data.success) {
-                alert(response.data.message);
                 toast.success("Book added Successfully");
             }
             else {

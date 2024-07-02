@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 import Checkbox from '@mui/material/Checkbox';
 import { useNavigate, useLocation } from "react-router-dom";
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -45,16 +46,19 @@ export default function Reset() {
                     password: inputs.password
                 });
                 if (data.success) {
-                    alert("Password Updated Successfully!!! \n Go to Login page to Login.");
+                    toast("Password Updated Successfully!!!", { icon: '👏' });
                     navigate("/recovered");
                 }
+                else {
+                    toast.error(data.message);
+                }
             } catch (error) {   //Handling the error
-                alert(error);
+                toast.error(error);
                 console.log(error);
             }
         }
         else {
-            alert("Password does not match!!!");
+            toast.error("Password doesn't match!!!");
         }
     }
 

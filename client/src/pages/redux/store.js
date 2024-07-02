@@ -1,24 +1,11 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
-import cartSystem from "./cartSystem";
+import { cartSystem } from "./cartSystem";
+import { combineReducers } from "@reduxjs/toolkit";
 
+import cartReducer from "./cartSystem"
 
-const authSlice = createSlice({
-    name: "auth",
-    initialState: {
-        isLogin: false,
-    },
-    reducers: {
-        login(state) {
-            state.isLogin = true;
-        },
-        logout(state) {
-            state.isLogin = false;
-        },
-    },
-});
-export const authActions = authSlice.actions;
+const rootReducer = combineReducers({
+    cart: cartReducer,
+})
 
-export const store = configureStore({
-    reducer: authSlice.reducer,
-    reducer: { user: cartSystem },
-});
+export default rootReducer

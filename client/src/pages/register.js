@@ -5,6 +5,7 @@ import "../CSS/Reg&Log.css";
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import PasswordChecklist from "react-password-checklist";
+import toast from "react-hot-toast";
 
 function Register(props) {
 
@@ -28,17 +29,19 @@ function Register(props) {
                     email: inputs.email,
                     password: inputs.password
                 });
+                console.log(data)
                 if (data.success) {
-                    alert("user registered successfully");
+                    toast.success(data.message);
                     navigate("/login");             //After successful registeration navigating to login page
                 }
+                toast.error(data.message)
             } catch (error) {
                 alert(error);
                 console.log(error);
             }
         }
         else {
-            alert("Password does not match!!!");        //telling user that password does not match
+            toast.error("Password doesn't match!!!");        //telling user that password does not match
         }
     }
 

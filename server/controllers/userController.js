@@ -16,7 +16,7 @@ exports.registerController = async (req, res) => {
         if (!username || !email || !password) {
             return res.status(400).send({
                 success: false,
-                message: "Please Fill all exists"
+                message: "OOPS!! all fields are required."
             })
         }
 
@@ -25,7 +25,7 @@ exports.registerController = async (req, res) => {
         if (exisitingUser) {
             return res.status(401).send({
                 success: false,
-                message: 'User already exists'
+                message: 'User already exists!!'
             })
         }
 
@@ -37,7 +37,7 @@ exports.registerController = async (req, res) => {
         await user.save()
         return res.status(201).send({
             success: true,
-            message: 'New user Created',
+            message: 'Registered Successfully',
             user
         })
     } catch (error) {     //handling errors
@@ -83,7 +83,7 @@ exports.loginController = async (req, res) => {
         if (!email || !password) {
             return res.status(200).send({
                 success: false,
-                message: "Please enter email and password"
+                message: "Please enter email and password."
             })
         }
 
@@ -93,7 +93,7 @@ exports.loginController = async (req, res) => {
         if (!user) {    //handling if user does not exists
             return res.status(200).send({
                 success: true,
-                message: 'Email is not registered'
+                message: 'Email is not registered.'
             })
         }
 
@@ -102,12 +102,12 @@ exports.loginController = async (req, res) => {
         if (!isMatch) {         //handling if password does not match
             return res.status(401).send({
                 success: false,
-                message: 'Invalid email or password',
+                message: 'Invalid email or password.',
             })
         }
         return res.status(200).send({       //All credentials matched
             success: true,                  //user ready for login
-            message: 'Login successfully',
+            message: 'Login Successfully',
             user
         })
     } catch (error) {                       //handling unexpected errors
@@ -151,7 +151,7 @@ exports.OTPController = async (req, res) => {
         if (!user) {
             return res.status(200).send({
                 success: false,
-                message: 'Email is not registered'
+                message: 'Email is not registered.'
             })
         }
 
@@ -213,7 +213,7 @@ exports.OTPController = async (req, res) => {
         main().catch(console.error);
         return res.status(200).send({
             success: true,
-            message: 'Mail sent'
+            message: 'Mail sent. Check your inbox.'
         })
 
     } catch (error) {
@@ -238,7 +238,7 @@ exports.updatePassword = async (req, res) => {
         if (!password) {
             return res.status(401).send({
                 success: false,
-                message: "Please provide new password"
+                message: "Enter new password."
             })
         }
 
@@ -254,11 +254,11 @@ exports.updatePassword = async (req, res) => {
             $set: { password: hashedPassword }
         });
 
-        console.log("Password updated");
+        console.log("Password updated successfully");
         await user.save()    //Saving updated password
         return res.status(201).send({
             success: true,
-            message: 'Password Updated',
+            message: 'Password updated successfully',
             user
         })
 

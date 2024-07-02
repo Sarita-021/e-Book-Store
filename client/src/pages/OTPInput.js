@@ -26,20 +26,26 @@ function OTPInput() {
             procedure: "Password Recovery"
         });
         setDisable(true);   //Disabling the resend button
-        alert("A new OTP has succesfully been sent to your email.");
         setTimer(60);  //Setting the timer again
         const da = {
             recp_email: recp_email, Otp: OTP  //Storing the updated otp for matching
         };
         //  Mail sent 
         if (data.success) {
-            alert(data.message);
-            toast.success("Mail Sent Successfully");
+            toast.promise(data.success,
+                {
+                    loading: 'Sending OTP...',
+                    success: <b>New OTP Sent!</b>,
+                });
             navigate("/OTPInput", { state: da });
         }
         // Mail send error
         else {
-            alert(data.message);
+            toast.promise(data.success,
+                {
+                    loading: 'Sending OTP...',
+                    error: <b>Error  in sending new otp</b>,
+                });;
         }
     }
 
@@ -52,7 +58,7 @@ function OTPInput() {
             navigate("/reset", { state: da });   //passing the mail to the reset route
             return;
         }
-        alert("The OTP is incorrect. Please enter the correct otp or try again!!!");
+        toast.error('OOPS!! incorrect OTP, try again')
         return;
     }
 
