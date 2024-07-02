@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Book from "./book"
-import bookspedia from "../bookspedia";
+// import bookspedia from "../bookspedia";
 import "../CSS/home.css"
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 AOS.init({
     duration: 1200,
@@ -12,7 +14,20 @@ AOS.init({
 function Home() {
 
 
-    const [item, setItem] = useState(bookspedia);
+    const [item, setItem] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const { data } = await axios.get('/all-books');
+                // books_data = data;
+                setItem(data);
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        fetchData();
+    }, []);
 
     return (
 
@@ -134,7 +149,7 @@ function Home() {
                 </div>
 
                 <div className="featured">
-                    <Book item={item.slice(2, 10)} />
+                    <Book item={item.slice(2, 6)} />
                 </div>
             </div>
         </div>

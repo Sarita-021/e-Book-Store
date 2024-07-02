@@ -1,8 +1,9 @@
 import React from "react";
-import bookspedia from "../bookspedia";
+// import bookspedia from "../bookspedia";
 
 
-const Buttons = ({ filterItem, setItem, menuItems }) => {
+const Buttons = ({ filterItem, setItem, menuItems, data }) => {
+
     return (
         <>
             <div className="d-flex filterBtn">
@@ -19,7 +20,7 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
                 })}
                 <button
                     className="btn"
-                    onClick={() => setItem(bookspedia)}
+                    onClick={() => setItem(data)}
                 >
                     All
                 </button>

@@ -1,6 +1,9 @@
 const express = require('express');
 const { getALLUsers, registerController, loginController, OTPController, updatePassword } = require('../controllers/userController');
-
+const { getAllBooks, uploadBook, getBookbyId, deleteBook } = require('../controllers/booksController');
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 // router object 
 const router = express.Router();
 
@@ -18,5 +21,16 @@ router.post('/send_recovery_email', OTPController)
 
 // updatePassword route
 router.post('/updatePassword', updatePassword)
+
+//get all books 
+router.get('/all-books', getAllBooks)
+//http://localhost:8080/api/v1/user/all-books
+
+//get single book
+router.get('/all-books/:id', getBookbyId)
+//http://localhost:8080/api/v1/user/all-books
+
+// add book
+router.post('/uploadBook', upload.single('file'), uploadBook)
 
 module.exports = router

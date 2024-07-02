@@ -20,14 +20,14 @@ const Cart = () => {
                 <div className="featured">
                     {cart.map((item) => {
                         return (
-                            <div className="container" data-aos="zoom-in-up" ><div key={item.id}></div>
+                            <div className="container" data-aos="zoom-in-up" ><div key={item._id}></div>
                                 <div class="box-image">
                                     <img src={item.image} width={150} height={190} alt="..." />
                                     <button className="scart" onClick={() => dispatch(RemoveFromCart(item))}><DeleteIcon className="cart" /></button>
                                 </div>
                                 <div class="box-text">
-                                    <h1 className="name">{item.name}</h1>
-                                    <div className="catg">{item.category}</div>
+                                    <h1 className="name">{item.metadata.bName}</h1>
+                                    <div className="catg">{item.metadata.bGenre}</div>
                                     <a href={item.purchase}><button class="btn">Purchase</button></a>
                                 </div>
                             </div>

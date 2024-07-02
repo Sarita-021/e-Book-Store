@@ -1,20 +1,40 @@
 import React, { useState } from "react";
 import Book from "./book";
-import bookspedia from "../bookspedia";
+// import bookspedia from "../bookspedia";
 import Buttons from "./button";
+// import useFetchData from "./fetchData";
+import { useEffect } from 'react';
+import axios from 'axios';
 
 import { NavLink, useNavigate } from "react-router-dom";
+import bookspedia from "../bookspedia";
 
 function AllBooks() {
 
-    const [item, setItem] = useState(bookspedia);
+    const [item, setItem] = useState([]);
+    const [data, setData] = useState([]);
 
-    const menuItems = [...new Set(bookspedia.map((book) => book.category))];
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const { data } = await axios.get('/all-books');
+                setItem(data);
+                setData(data);
+                console.log(item)
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        fetchData();
+    }, []);
+
+    const menuItems = [...new Set(data.map((Va) => Va.metadata.bGenre))];
+
 
     const filterItem = (curcat) => {
-        const newItem = bookspedia.filter((newVal) => {
-            console.log(newVal.category === curcat)
-            if (newVal.category === curcat) {
+        const newItem = data.filter((newVal) => {
+            if (newVal.metadata.bGenre === curcat) {
                 return newVal
             }
         });
@@ -25,12 +45,12 @@ function AllBooks() {
     const [searchField, setSearchField] = useState("");
     const [searchShow, setSearchShow] = useState(false);
 
-
-    const filteredBooks = bookspedia.filter(
+    // search
+    const searchBooks = data.filter(
         items => {
             return (
                 items
-                    .name
+                    .metadata.bName
                     .toLowerCase()
                     .includes(searchField.toLowerCase())
             );
@@ -48,9 +68,8 @@ function AllBooks() {
         }
     };
     const navigate = useNavigate();
-    const filtered = filteredBooks.map((item) => item.name);
+    const filtered = searchBooks.map((item) => item.metadata.bName);
     let isLogin = localStorage.getItem('islogin');
-
 
     return (
         <div id="popular-container">
@@ -74,8 +93,9 @@ function AllBooks() {
                         filterItem={filterItem}
                         setItem={setItem}
                         menuItems={menuItems}
+                        data={data}
                     />
-                    <Book item={searchShow ? filteredBooks : item} />
+                    <Book item={searchShow ? searchBooks : item} />
 
                 </div>
             </div>

@@ -10,6 +10,7 @@ import Footer from "../components/footer";
 import AllBooks from "../pages/allbooks";
 import Collection from "../pages/collection";
 import About from "../pages/about";
+import AddBooks from "../pages/addBooks";
 
 import { useState, createContext } from "react";
 import OTPInput from "../pages/OTPInput";
@@ -33,6 +34,7 @@ function App() {
                     <Route exact path="/OTPInput" element={<OTPInput />} />
                     <Route exact path="/reset" element={<Reset />} />
                     <Route exact path="/recovered" element={<Recovered />} />
+                    <Route exact path="/addBooks" element={<AddBooks />} />
                 </Routes>
             </Router>
             <Footer />
