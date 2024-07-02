@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Book from "./book"
-// import bookspedia from "../bookspedia";
-import "../CSS/home.css"
+import Book from "./book";
+import "../CSS/home.css";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';

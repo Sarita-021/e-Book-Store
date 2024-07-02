@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import Book from "./book";
-// import bookspedia from "../bookspedia";
 import Buttons from "./button";
-// import useFetchData from "./fetchData";
 import { useEffect } from 'react';
 import axios from 'axios';
 
 import { NavLink, useNavigate } from "react-router-dom";
-import bookspedia from "../bookspedia";
 
 function AllBooks() {
 

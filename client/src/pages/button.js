@@ -1,5 +1,4 @@
 import React from "react";
-// import bookspedia from "../bookspedia";
 
 
 const Buttons = ({ filterItem, setItem, menuItems, data }) => {
