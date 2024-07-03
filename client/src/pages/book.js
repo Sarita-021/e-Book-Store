@@ -11,9 +11,6 @@ import toast from "react-hot-toast";
 const Book = ({ item }) => {
 
     const dispatch = useDispatch();
-    // const handleCart = async (Val) => {
-
-    //     if (localStorage.getItem('islogin')) {    //matching password and confirm password
 
     const handleAddToCart = (Val) => {
         if (localStorage.getItem('islogin')) {

@@ -42,7 +42,7 @@ export default function Reset() {
         if (inputs.password === inputs.confirmPassword) {  //matching if both passwords are same
             try {
                 console.log("hello", inputs.name)
-                const { data } = await axios.post('/updatePassword', {   // calling updatePassword Route
+                const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/updatePassword', {   // calling updatePassword Route
                     email: recp_email,
                     password: inputs.password
                 });

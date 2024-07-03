@@ -45,7 +45,7 @@ function AddBooks(props) {
         }
 
         try {
-            const response = await axios.post('/uploadBook', formData, {
+            const response = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/uploadBook', formData, {
                 withCredentials: true, headers: { 'Content-Type': 'multipart/form-data' }
             });
             if (inputFile.current) {

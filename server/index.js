@@ -12,7 +12,6 @@ dotenv.config();
 
 //router import
 const userRoutes = require('./routes/userRoutes');
-// const booksRoutes = require('./routes/bookRoutes');
 
 //mongodb connection 
 connectDB();

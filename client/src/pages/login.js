@@ -11,8 +11,7 @@ function Login(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/login', {
-            const { data } = await axios.post('/login', {    //Calling Login Controller
+            const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/login', {   //Calling Login Controller
                 email: inputs.email,                    //Sending email and password to backend to perform relevant actions
                 password: inputs.password
             });
@@ -54,8 +53,7 @@ function Login(props) {
         try {
             const OTP = Math.floor(Math.random() * 9000 + 1000);  //Generating OTP
             console.log(OTP);
-            // const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/OTPController', {
-            const { data } = await axios.post('/send_recovery_email', {         //Calling OTP Controller (Mailsender)
+            const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/send_recovery_email', {       //Calling OTP Controller (Mailsender)
                 email: inputs.email,
                 OTP: OTP,
                 procedure: "Password Recovery"
