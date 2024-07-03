@@ -17,7 +17,7 @@ function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data } = await axios.get('/all-books');
+                const { data } = await axios.get('https://e-book-store-ten.vercel.app/api/v1/user/all-books');
                 // books_data = data;
                 setItem(data);
             } catch (error) {
