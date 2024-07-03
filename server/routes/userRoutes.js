@@ -24,11 +24,9 @@ router.post('/updatePassword', updatePassword)
 
 //get all books 
 router.get('/all-books', getAllBooks)
-//http://localhost:8080/api/v1/user/all-books
 
 //get single book
 router.get('/all-books/:id', getBookbyId)
-//http://localhost:8080/api/v1/user/all-books
 
 // add book
 router.post('/uploadBook', upload.single('file'), uploadBook)
