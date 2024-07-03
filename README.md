@@ -19,6 +19,10 @@ Welcome to Our Bookstore, a project aimed at creating an online platform for boo
 
 - **Book Storage:** We have used MongoDB to store and reterive book data.
 
+- **Search:** Easy search functionality available.
+
+- **Filter:** You can filter your favourite genre of books in just one click.
+
  
 ## Getting Started
 
@@ -47,6 +51,15 @@ If you have any questions, ideas, or suggestions, feel free to create an issue o
 
 We have used React, MongoDB, JavaScript, Redux, NodeJS, Multer GridFS Storage, ExpressJS, HTML, CSS, RestAPI, NodeMailer etc.
 
+## Quick Look
 
+<img width="1440" alt="Screenshot 2024-07-03 at 10 35 53 PM" src="https://github.com/Sarita-021/e-Book-Store/assets/121181405/d417fbd2-05b1-4492-8128-5d089f96d18e">
+
+<img width="1440" alt="Screenshot 2024-07-03 at 10 36 22 PM" src="https://github.com/Sarita-021/e-Book-Store/assets/121181405/615b657b-7b43-4cbb-9269-d8fd52f86e24">
+
+<img width="1440" alt="Screenshot 2024-07-03 at 10 36 38 PM" src="https://github.com/Sarita-021/e-Book-Store/assets/121181405/f0339c53-acca-4266-ae40-a6a7aa783c0c">
+
+
+## Visit the link in about for better experience.
 
 Happy reading and coding!
