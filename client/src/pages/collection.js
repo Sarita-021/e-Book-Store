@@ -23,7 +23,7 @@ const Cart = (item) => {
                         return (
                             <div className="container" data-aos="zoom-in-up" ><div key={item.id}></div>
                                 <div class="box-image">
-                                    <img src={'http://localhost:8080/api/v1/user/all-books/' + item._id} width={150} height={190} alt="..." />
+                                    <img src={'https://e-book-store-ten.vercel.app/api/v1/user/all-books/' + item._id} width={150} height={190} alt="..." />
                                     <button className="scart" onClick={() => dispatch(removeFromCart(item._id))}><DeleteIcon className="cart" /></button>
                                 </div>
                                 <div class="box-text">

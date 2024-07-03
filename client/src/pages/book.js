@@ -31,7 +31,7 @@ const Book = ({ item }) => {
                 return (
                     <div className="container" data-aos="zoom-in-up" ><div key={Val.id}></div>
                         <div className="box-image"  >
-                            <img src={'http://localhost:8080/api/v1/user/all-books/' + Val._id} width={150} height={190} alt="..." />
+                            <img src={'https://e-book-store-ten.vercel.app/api/v1/user/all-books/' + Val._id} width={150} height={190} alt="..." />
                             <button className="scart" onClick={() => handleAddToCart(Val)}><ShoppingCartIcon className="cart" /></button>
                         </div>
                         <div className="box-text">

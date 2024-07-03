@@ -30,24 +30,14 @@ app.set('view engine', 'js');
 
 // routes
 app.use('/api/v1/user', userRoutes)
-// app.use(cors(
-//     {
-//         origin: 'https://e-book-store-bsk3.vercel.app/',
-//         methods: ['GET', 'POST', 'OPTIONS'],
-//         credentials: true
-//     }
+app.use(cors(
+    {
+        origin: 'https://e-book-store-bsk3.vercel.app/',
+        methods: ['GET', 'POST', 'OPTIONS'],
+        credentials: true
+    }
 
-// ))
-
-// app.use('/api/v1/book', booksRoutes)
-// app.use(cors(
-//     {
-//         origin: 'https://e-book-store-bsk3.vercel.app/',
-//         methods: ['GET', 'POST', 'OPTIONS'],
-//         credentials: true
-//     }
-
-// ))
+))
 
 app.get("/", (req, res) => {
     res.send("Hello from server!");
