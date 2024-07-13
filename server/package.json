@@ -9,7 +9,7 @@
         "client": "npm start --prefix ../client",
         "dev": "concurrently \"npm run server\" \"npm run client\""
     },
-    "author": "Suniti",
+    "author": "Sarita",
     "license": "ISC",
     "dependencies": {
         "@emotion/react": "^11.11.1",
