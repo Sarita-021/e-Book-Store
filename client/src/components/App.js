@@ -10,11 +10,11 @@ import AllBooks from "../pages/allbooks";
 import Collection from "../pages/collection";
 import About from "../pages/about";
 import AddBooks from "../pages/addBooks";
-
 import { useState, createContext } from "react";
 import OTPInput from "../pages/OTPInput";
 import Recovered from "../pages/recovered";
 import Reset from "../pages/reset";
+import Profile from "../pages/profile";
 
 export const RecoveryContext = createContext();
 function App() {
@@ -34,6 +34,7 @@ function App() {
                     <Route exact path="/reset" element={<Reset />} />
                     <Route exact path="/recovered" element={<Recovered />} />
                     <Route exact path="/addBooks" element={<AddBooks />} />
+                    <Route exact path="/profile" element={<Profile />} />
                 </Routes>
             </Router>
             <Footer />

@@ -19,7 +19,7 @@ header {
     background-color: #f7f6f9;
     padding: 10px 10px;
     box-sizing: border-box;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px 10px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,16 +62,17 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+    position: relative;
+    margin-right: 30px;
 }
 
-#navbar .right-navigation div {
-    height: 30px;
-    width: 80px;
+#navbar .right-navigation .cart {
+    height: 50px;
+    width: 50px;
     color: #4e4e51;
-    background-color: #edecf2;
-    padding: 5px 10px 7px;
-    border-radius: 10px;
-    font-size: 16px;
+    /* background-color: #edecf2; */
+    padding: 5px 20px 7px;
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.4s ease-out;
     display: flex;
@@ -79,14 +80,65 @@ header {
     align-items: center;
 }
 
+#navbar .right-navigation .relative {
+    width: 50px;
+    height: 50px;
+    padding: 5px 10px 5px;
+    position: relative;
+}
+
+#navbar .right-navigation .profile {
+    position: relative;
+    height: 35px;
+    width: 35px;
+    /* padding: 5px 20px 7px; */
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 50%; */
+}
+
+#navbar .right-navigation .profile .pimg {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#navbar .right-navigation .phover {
+    position: absolute;
+    right: 0;
+    top: 3.2rem;
+    z-index: 50;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    width: 8rem;
+    display: none;
+    text-align: center;
+    background-color: #f7f6f9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#navbar .right-navigation .relative:hover .phover {
+    display: block;
+}
+
 #navbar .right-navigation div .link {
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     color: #383347;
     text-decoration: none;
+    display: block;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #374151;
 }
 
 #navbar .right-navigation div .link:hover {
-    background-color: #d8d5e2;
+    background-color: #E5E7EB;
 }
 
 #navbar .right-navigation .hide {

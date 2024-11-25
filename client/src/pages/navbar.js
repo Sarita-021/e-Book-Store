@@ -25,6 +25,16 @@ const Navbar = () => {
         }
     };
 
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
+
 
     const [Mobile, setMobile] = useState(false)
 
@@ -48,7 +58,17 @@ const Navbar = () => {
 
                         <div className="right-navigation">
                             <div className="cart"><NavLink id="cart-btn" activeClassName="active" className="link" to="/collection"><ShoppingCartIcon /></NavLink></div>
-                            <div><NavLink activeClassName="active" onClick={handleLogout} className="link" to="/" >Logout </NavLink></div>
+                            <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                <NavLink activeClassName="active" className="profile" to="/profile">
+                                    <img className="pimg" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="profile" />
+                                </NavLink>
+                                {isHovered && (
+                                    <div className="phover">
+                                        <NavLink activeClassName="active" to="/profile" className="link" > Profile </NavLink>
+                                        <NavLink activeClassName="active" onClick={handleLogout} className="link" to="/" > Logout </NavLink>
+                                    </div>
+                                )}
+                            </div>
                             <div id="menu-btn" onClick={() => setMobile(!Mobile)} class="menu-btn hide">{Mobile ? <CloseIcon /> : <MenuIcon />}</div>
                         </div>
                     </>
