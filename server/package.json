@@ -18,6 +18,7 @@
         "aos": "^2.3.4",
         "bcrypt": "^5.1.0",
         "body-parser": "^1.20.2",
+        "caniuse-lite": "^1.0.30001699",
         "colors": "^1.4.0",
         "concurrently": "^8.2.0",
         "cors": "^2.8.5",
