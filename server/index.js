@@ -6,12 +6,12 @@ const connectDB = require('./config/db')
 const path = require('path');
 const bodyparser = require('body-parser');
 
-
 //env config
 dotenv.config();
 
 //router import
 const userRoutes = require('./routes/userRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 
 //mongodb connection 
 connectDB();
@@ -29,6 +29,7 @@ app.set('view engine', 'js');
 
 // routes
 app.use('/api/v1/user', userRoutes)
+app.use("/api/v1/cart", cartRoutes);
 app.use(cors(
     {
         origin: 'https://e-book-store-bsk3.vercel.app/',
