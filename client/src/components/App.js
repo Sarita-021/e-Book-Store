@@ -15,12 +15,26 @@ import OTPInput from "../pages/OTPInput";
 import Recovered from "../pages/recovered";
 import Reset from "../pages/reset";
 import Profile from "../pages/profile";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export const RecoveryContext = createContext();
 function App() {
 
+    const darkMode = useSelector((state) => state.theme.darkMode);
+
+    useEffect(() => {
+        if (darkMode) {
+          document.body.classList.add("dark");
+        } else {
+          document.body.classList.remove("dark");
+        }
+      }, [darkMode]);
+
     return (
-        <div className="App">
+      <div className="App bg-white text-black dark:bg-gray-900 dark:text-white" >
+         <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
+      </div>
             <Router>
                 <Navbar />
                 <Routes>

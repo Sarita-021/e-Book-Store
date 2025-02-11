@@ -1,5 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
 
+/* Default (Light Mode) */
+:root {
+    --mainColor: #f7f6f9;
+    --textColor: #130f40;
+    --navBackground: #ffffff;
+    --linkColor: #383347;
+    --hoverBackground: rgba(211, 211, 211, 0.4);
+    --profileMenuBackground: #f7f6f9;
+    --shadowColor: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+.dark {
+    --mainColor: #1a1a1a;
+    --textColor: #ffffff;
+    --navBackground: #2a2a2a;
+    --linkColor: #e0e0e0;
+    --hoverBackground: rgba(100, 100, 100, 0.4);
+    --profileMenuBackground: #2a2a2a;
+    --shadowColor: rgba(255, 255, 255, 0.1);
+}
+
 header {
     display: flex;
     align-items: center;
@@ -16,7 +38,7 @@ header {
     left: 0px;
     right: 0px;
     z-index: 999;
-    background-color: #f7f6f9;
+    background-color: var(--navBackground);
     padding: 10px 10px;
     box-sizing: border-box;
     border-radius: 0px 0px 10px 10px;
@@ -28,7 +50,7 @@ header {
 }
 
 #navbar .left-navigation {
-    color: #130f40;
+    color: var(--textColor);
     display: flex;
     align-items: center;
     font-size: 18px;
@@ -38,7 +60,7 @@ header {
 #navbar .left-navigation i {
     padding-right: 10px;
     padding-bottom: 2px;
-    color: #494262;
+    color: var(--linkColor);
 }
 
 #navbar .middle-navigation ul {
@@ -49,12 +71,12 @@ header {
 
 #navbar .middle-navigation ul li .link {
     padding: 10px 20px;
-    color: #383347;
+    color: var(--linkColor);
     text-decoration: none;
 }
 
 #navbar .middle-navigation ul li .link:hover {
-    background-color: rgba(211, 211, 211, 0.4);
+    background-color: var(--hoverBackground);
     border-radius: 20px;
 }
 
@@ -69,8 +91,7 @@ header {
 #navbar .right-navigation .cart {
     height: 50px;
     width: 50px;
-    color: #4e4e51;
-    /* background-color: #edecf2; */
+    color: var(--linkColor);
     padding: 5px 20px 7px;
     font-size: 20px;
     cursor: pointer;
@@ -80,24 +101,15 @@ header {
     align-items: center;
 }
 
-#navbar .right-navigation .relative {
-    width: 50px;
-    height: 50px;
-    padding: 5px 10px 5px;
-    position: relative;
-}
-
 #navbar .right-navigation .profile {
     position: relative;
     height: 35px;
     width: 35px;
-    /* padding: 5px 20px 7px; */
     cursor: pointer;
     transition: all 0.4s ease-out;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border-radius: 50%; */
 }
 
 #navbar .right-navigation .profile .pimg {
@@ -117,8 +129,8 @@ header {
     width: 8rem;
     display: none;
     text-align: center;
-    background-color: #f7f6f9;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: var(--profileMenuBackground);
+    box-shadow: 0 4px 6px -1px var(--shadowColor), 0 2px 4px -1px var(--shadowColor);
 }
 
 #navbar .right-navigation .relative:hover .phover {
@@ -126,25 +138,21 @@ header {
 }
 
 #navbar .right-navigation div .link {
-    /* padding: 10px 20px; */
-    color: #383347;
-    text-decoration: none;
     display: block;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    color: #374151;
+    color: var(--textColor);
 }
 
 #navbar .right-navigation div .link:hover {
-    background-color: #E5E7EB;
+    background-color: var(--hoverBackground);
 }
 
 #navbar .right-navigation .hide {
     display: none;
 }
-
 
 @media screen and (max-width: 768px) {
     #navbar {
@@ -159,13 +167,12 @@ header {
         display: none;
     }
 
-
     #navbar .middle-navigation.show {
         width: 70%;
         padding: 20px 0px;
         display: flex;
         justify-content: center;
-        background-color: #f7f6f9;
+        background-color: var(--navBackground);
         text-align: center;
         position: absolute;
         top: 130%;
@@ -203,8 +210,5 @@ header {
 @media screen and (max-width: 500px) {
     #navbar {
         width: 100%;
-        /* padding-right: 30px; */
     }
-
-
 }

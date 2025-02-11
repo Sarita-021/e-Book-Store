@@ -3,6 +3,7 @@ import Book from "./book";
 import Buttons from "./button";
 import { useEffect } from 'react';
 import axios from 'axios';
+import "../CSS/allbooks.css"
 
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -69,7 +70,7 @@ function AllBooks() {
     let isLogin = localStorage.getItem('islogin');
 
     return (
-        <div id="popular-container">
+        <div id="popular-container" className="allbooksbackg">
             <div className="">
                 <div className="srch">
                     <div className="tc ma0 pa4">

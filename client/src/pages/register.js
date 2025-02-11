@@ -78,7 +78,7 @@ function Register(props) {
     }
 
     return (
-        <div>
+        <div className="loginBody">
 
             <div className="auth-form-container register">
                 <form className="register-form form" onSubmit={handleSubmit}>
@@ -93,7 +93,7 @@ function Register(props) {
                             />
                         </div>
                     </div>
-                    <div className="separateR">
+                    <div className="separateR not">
                         <p className="change">Already have an account
                             <button className="link-btn" onClick={() => navigate('/login')}>Login </button></p>
                         <h3>Weclome to BooKraze</h3>

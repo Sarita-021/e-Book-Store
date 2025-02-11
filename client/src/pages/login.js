@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import toast from "react-hot-toast";
+import "../CSS/Reg&Log.css";
 
 function Login(props) {
 
@@ -80,25 +81,25 @@ function Login(props) {
 
 
     return (
-        <div>
+        <div className="loginBody">
             <div className="auth-form-container">
                 <form className="login-form form" onSubmit={handleSubmit}>
                     <div className="separateL">
                         <img className="auth-img" src="https://www.globalsign.com/application/files/4616/2199/5695/ManagedPKI_Strong_Authentication_Cover_1_APAC_2021_05_19.jpg" alt="authentication " />
                     </div>
                     <div className="separateR">
-                        <p className="change">
+                        <p className="change not">
                             Don't have an account <button className="link-btn" onClick={() => navigate('/register')}>Register</button>
                         </p>
-                        <h3>Weclome to BooKraze</h3>
-                        <p className="tagline">Dicover a world of stories </p>
-                        <h1>Login</h1>
-                        <label className="label" htmlFor="email">User Email</label>
-                        <input className="input" onChange={handleChange} value={inputs.email} type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
-                        <label className="label" htmlFor="password">Password</label>
-                        <input className="input" onChange={handleChange} value={inputs.password} type="password" placeholder="********" id="password" name="password" />
-                        <p className="forgotPwd"><a href="#" onClick={() => nagigateToOtp()} > Forgot password?</a></p>
-                        <button className="btn" type="submit">Log In</button>
+                        <h3 className="not">Weclome to BooKraze</h3>
+                        <p className="tagline not">Dicover a world of stories </p>
+                        <h1 className="not">Login</h1>
+                        <label className="label not" htmlFor="email">User Email</label>
+                        <input className="input not" onChange={handleChange} value={inputs.email} type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
+                        <label className="label not" htmlFor="password">Password</label>
+                        <input className="input not" onChange={handleChange} value={inputs.password} type="password" placeholder="********" id="password" name="password" />
+                        <p className="forgotPwd not"><a href="#" onClick={() => nagigateToOtp()} > Forgot password?</a></p>
+                        <button className="btn not" type="submit">Log In</button>
                     </div>
                 </form>
             </div>

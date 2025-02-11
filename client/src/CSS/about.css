@@ -2,13 +2,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+:root {
+    --mainColor: #f7f6f9;
+    --textColor: #130f40;
+    --Background: #ffffff;
+    --CtrBackground: #d9d4e7;
+    --B2: #ffffff;
+    --linkColor: #383347;
+    --text3: #52389b;
+    --text2: #494262;
+    --hoverBackground: rgba(211, 211, 211, 0.4);
+    --shadowColor: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+.dark {
+    --mainColor: #1a1a1a;
+    --textColor: #ffffff;
+    --Background: #2a2a2a;
+    --linkColor: #e0e0e0;
+    --CtrBackground: #3b3847;
+    --text2: #b3aacc;
+    --text3: #d0adf8;
+    --B2: #222123;
+    --hoverBackground: rgba(100, 100, 100, 0.4);
+    --shadowColor: rgba(255, 255, 255, 0.1);
+}
+
 .about-us-section {
-    background-color: #ececefe8;
+    background-color: var(--CtrBackground);
     padding: 20px 0px 70px;
 }
 
 h2 {
     font-family: 'Dancing Script', cursive !important;
+    color: var(--text);
     font-weight: bold;
 }
 
@@ -25,7 +53,7 @@ p {
     font-weight: bolder;
     position: relative;
     text-align: center;
-    color: #5a595b;
+    color: var(--text3);
 }
 
 .about-us-section .container {

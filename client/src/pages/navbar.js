@@ -3,7 +3,8 @@ import "../CSS/navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import { useDispatch, useSelector } from "react-redux";
+import { toggleDarkMode } from "./redux/features/themeSlice";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -11,6 +12,8 @@ const Navbar = () => {
 
     let isLogin = localStorage.getItem('islogin');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const darkMode = useSelector((state) => state.theme.darkMode);
 
     console.log(localStorage.getItem('islogin'))
 
@@ -35,6 +38,15 @@ const Navbar = () => {
         setIsHovered(false);
     };
 
+    useEffect(() => {
+        if (darkMode) {
+            document.body.classList.add("dark"); 
+        } else {
+            document.body.classList.remove("dark"); 
+        }
+    }, [darkMode]);
+    
+
 
     const [Mobile, setMobile] = useState(false)
 
@@ -42,7 +54,7 @@ const Navbar = () => {
     return (
         <header>
             <div id="navbar">
-                <div className="left-navigation">
+                <div className="left-navigation dark:text-sky-400">
                     <i className="ri-store-2-line"></i>
                     BookRaze
                 </div>
@@ -66,6 +78,9 @@ const Navbar = () => {
                                     <div className="phover">
                                         <NavLink activeClassName="active" to="/profile" className="link" > Profile </NavLink>
                                         <NavLink activeClassName="active" onClick={handleLogout} className="link" to="/" > Logout </NavLink>
+                                        <div onClick={() => dispatch(toggleDarkMode())} className="link cursor-pointer">
+                                        {darkMode ? "Light" : "Dark"}
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -88,6 +103,7 @@ const Navbar = () => {
                             <div><NavLink activeClassName="active" className="link" to="/register">Register</NavLink></div>
                             <div id="menu-btn" onClick={() => setMobile(!Mobile)} className="menu-btn hide">{Mobile ? <MenuIcon /> : <CloseIcon />}</div>
                         </div>
+                        
                     </>}
 
             </div>
