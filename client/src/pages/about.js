@@ -54,7 +54,7 @@ function About() {
             </div>
         </div>
         <div className="container _3" data-aos="fade-left">
-            <img src="./images/ac3.png" alt="ac3" width={250} />
+            <img src="./images/ac3.png" alt="ac3" width={250} height={350}/>
             <div className="detail">
                 <h2 className="heading"> BookRaze: Your Literary Haven </h2>
                 <p className="content">
@@ -62,7 +62,7 @@ function About() {
                 </p>
             </div>
             <div className="overlay-1">
-                <div className="text">BookRaze: Your Literary Haven</div>
+                <div className="text">Your Literary Haven</div>
             </div>
         </div>
         <div className="container  _4" data-aos="fade-right">
@@ -74,7 +74,7 @@ function About() {
             </div>
             <img src="./images/ac4.png" alt="ac4" width={250} />
             <div className="overlay">
-                <div className="text">Evolution of the name "BookRaze"</div>
+                <div className="text">Evolution</div>
             </div>
         </div>
         <div className="container _5" data-aos="fade-left">
