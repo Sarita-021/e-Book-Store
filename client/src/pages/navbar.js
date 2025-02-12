@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "./redux/features/themeSlice";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
 
@@ -67,8 +68,11 @@ const Navbar = () => {
                                 <li><NavLink activeClassName="active" className="link" to="/allbooks">All Books</NavLink></li>
                             </ul>
                         </div>
-
+                        
                         <div className="right-navigation">
+                        <div onClick={() => dispatch(toggleDarkMode())} className="cursor-pointer">
+                        {darkMode ? <Sun className="text-white" /> : <Moon className="text-black transition-none" />}
+                                        </div>
                             <div className="cart"><NavLink id="cart-btn" activeClassName="active" className="link" to="/collection"><ShoppingCartIcon /></NavLink></div>
                             <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                                 <NavLink activeClassName="active" className="profile" to="/profile">
@@ -78,9 +82,6 @@ const Navbar = () => {
                                     <div className="phover">
                                         <NavLink activeClassName="active" to="/profile" className="link" > Profile </NavLink>
                                         <NavLink activeClassName="active" onClick={handleLogout} className="link" to="/" > Logout </NavLink>
-                                        <div onClick={() => dispatch(toggleDarkMode())} className="link cursor-pointer">
-                                        {darkMode ? "Light" : "Dark"}
-                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -88,6 +89,8 @@ const Navbar = () => {
                         </div>
                     </>
                 }
+
+                
 
                 {!isLogin &&
                     <>
@@ -98,7 +101,11 @@ const Navbar = () => {
                                 <li><NavLink activeClassName="active" className="link" to="/allbooks">All Books</NavLink></li>
                             </ul>
                         </div>
+                        
                         <div className="right-navigation">
+                        <div onClick={() => dispatch(toggleDarkMode())} className="cursor-pointer">
+                        {darkMode ? <Sun className="text-white" /> : <Moon className="text-black" />}
+                                        </div>
                             <div><NavLink id="login-btn" activeClassName="active" className="link" to="/login">Login</NavLink></div>
                             <div><NavLink activeClassName="active" className="link" to="/register">Register</NavLink></div>
                             <div id="menu-btn" onClick={() => setMobile(!Mobile)} className="menu-btn hide">{Mobile ? <MenuIcon /> : <CloseIcon />}</div>
@@ -106,7 +113,10 @@ const Navbar = () => {
                         
                     </>}
 
+
+                
             </div>
+            
         </header>
     );
 }

@@ -6,7 +6,7 @@ function About() {
         <div className="container _1" >      
             <div className="detail">
             <div data-aos="fade-down">
-                <h1 className="title">ABOUT US</h1>
+                <h1 className="title" style={{textAlign: "left"}}>ABOUT US</h1>
             </div>
                 <h2 className="heading"> Welcome to BookRaze,</h2>
                 <p className="content">
@@ -20,7 +20,7 @@ function About() {
         </div>
         <div className="container _2" data-aos="fade-right">
             <div className="detail">
-                <h2 className="heading"> Join Us on this Literary Adventure: </h2>
+                <h2 className="heading headD"> Join Us on this Literary Adventure: </h2>
                 <p className="content">
                     As BookRaze continues to evolve and flourish, we invite all book lovers to join us on this magical literary adventure. Whether you're an avid reader seeking your next escapade or a curious soul exploring the wonders of literature, BookRaze welcomes you with open arms.
                 </p>
@@ -62,19 +62,19 @@ function About() {
                 </p>
             </div>
             <div className="overlay-1">
-                <div className="text">BookRaze: Your Literary Haven</div>
+                <div className="text">Your Literary Haven</div>
             </div>
         </div>
         <div className="container  _4" data-aos="fade-right">
             <div className="detail">
-                <h2 className="heading">Evolution of the name "BookRaze" </h2>
+                <h2 className="heading headD">Evolution of the name "BookRaze" </h2>
                 <p className="content">
                     The name "BookRaze" combines "Book" representing literature and "Raze" symbolizing transformative power, implying a platform where readers can explore and have their minds opened to new worlds of knowledge and imagination.
                 </p>
             </div>
             <img src="./images/ac4.png" alt="ac4" width={250} />
             <div className="overlay">
-                <div className="text">Evolution of the name "BookRaze"</div>
+                <div className="text">Evolution</div>
             </div>
         </div>
         <div className="container _5" data-aos="fade-left">
