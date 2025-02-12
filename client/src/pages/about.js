@@ -54,7 +54,7 @@ function About() {
             </div>
         </div>
         <div className="container _3" data-aos="fade-left">
-            <img src="./images/ac3.png" alt="ac3" width={250} />
+            <img src="./images/ac3.png" alt="ac3" width={250} height={350}/>
             <div className="detail">
                 <h2 className="heading"> BookRaze: Your Literary Haven </h2>
                 <p className="content">
