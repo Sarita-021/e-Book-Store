@@ -2,10 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import toast from "react-hot-toast";
+import { Checkbox, FormControlLabel } from "@mui/material";
 
 function Login(props) {
-
+    const [passwordShown, setPasswordShown] = useState(false);
     const navigate = useNavigate();
+
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+    };
 
     //Handling Submit Button
     const handleSubmit = async (e) => {
@@ -96,7 +101,19 @@ function Login(props) {
                         <label className="label" htmlFor="email">User Email</label>
                         <input className="input" onChange={handleChange} value={inputs.email} type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
                         <label className="label" htmlFor="password">Password</label>
-                        <input className="input" onChange={handleChange} value={inputs.password} type="password" placeholder="********" id="password" name="password" />
+                        <input className="input" onChange={handleChange} value={inputs.password} type={passwordShown ? "text" : "password"} placeholder="********" id="password" name="password" />
+                        <div className="passwordShow">
+                                                        <FormControlLabel
+                                                            control={
+                                                                <Checkbox
+                                                                    name="checkedB"
+                                                                    color="primary"
+                                                                />
+                                                            }
+                                                            onClick={togglePassword}
+                                                        />
+                                                        <p className="pStyle">Show Password</p>
+                                                    </div>
                         <p className="forgotPwd"><a href="#" onClick={() => nagigateToOtp()} > Forgot password?</a></p>
                         <button className="btn" type="submit">Log In</button>
                     </div>
