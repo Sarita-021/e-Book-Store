@@ -3,14 +3,18 @@ import "../CSS/navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import { useDispatch, useSelector } from "react-redux";
+import { toggleDarkMode } from "./redux/features/themeSlice";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
 
     let isLogin = localStorage.getItem('islogin');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const darkMode = useSelector((state) => state.theme.darkMode);
 
     console.log(localStorage.getItem('islogin'))
 
@@ -35,6 +39,15 @@ const Navbar = () => {
         setIsHovered(false);
     };
 
+    useEffect(() => {
+        if (darkMode) {
+            document.body.classList.add("dark"); 
+        } else {
+            document.body.classList.remove("dark"); 
+        }
+    }, [darkMode]);
+    
+
 
     const [Mobile, setMobile] = useState(false)
 
@@ -42,7 +55,7 @@ const Navbar = () => {
     return (
         <header>
             <div id="navbar">
-                <div className="left-navigation">
+                <div className="left-navigation dark:text-sky-400">
                     <i className="ri-store-2-line"></i>
                     BookRaze
                 </div>
@@ -55,8 +68,11 @@ const Navbar = () => {
                                 <li><NavLink activeClassName="active" className="link" to="/allbooks">All Books</NavLink></li>
                             </ul>
                         </div>
-
+                        
                         <div className="right-navigation">
+                        <div onClick={() => dispatch(toggleDarkMode())} className="cursor-pointer">
+                        {darkMode ? <Sun className="text-white" /> : <Moon className="text-black transition-none" />}
+                                        </div>
                             <div className="cart"><NavLink id="cart-btn" activeClassName="active" className="link" to="/collection"><ShoppingCartIcon /></NavLink></div>
                             <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                                 <NavLink activeClassName="active" className="profile" to="/profile">
@@ -74,6 +90,8 @@ const Navbar = () => {
                     </>
                 }
 
+                
+
                 {!isLogin &&
                     <>
                         <div className={Mobile ? "hide middle-navigation" : "show middle-navigation"} onClick={() => setMobile(false)}>
@@ -83,14 +101,22 @@ const Navbar = () => {
                                 <li><NavLink activeClassName="active" className="link" to="/allbooks">All Books</NavLink></li>
                             </ul>
                         </div>
+                        
                         <div className="right-navigation">
+                        <div onClick={() => dispatch(toggleDarkMode())} className="cursor-pointer">
+                        {darkMode ? <Sun className="text-white" /> : <Moon className="text-black" />}
+                                        </div>
                             <div><NavLink id="login-btn" activeClassName="active" className="link" to="/login">Login</NavLink></div>
                             <div><NavLink activeClassName="active" className="link" to="/register">Register</NavLink></div>
                             <div id="menu-btn" onClick={() => setMobile(!Mobile)} className="menu-btn hide">{Mobile ? <MenuIcon /> : <CloseIcon />}</div>
                         </div>
+                        
                     </>}
 
+
+                
             </div>
+            
         </header>
     );
 }

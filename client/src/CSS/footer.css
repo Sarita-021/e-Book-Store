@@ -1,5 +1,13 @@
+:root{
+    --background: #2e1484cf;
+}
+
+.dark{
+    --background: #1a0528;
+}
+
 .footer-content {
-    background-color: #2e1484cf;
+    background-color: var(--background);
     padding-top: 40px;
     padding-bottom: 10px;
     position: static;

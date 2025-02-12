@@ -2,13 +2,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+:root {
+    --mainColor: #f7f6f9;
+    --textColor: #130f40;
+    --Background: #ffffff;
+    --CtrBackground: #d9d4e7;
+    --B2: #ffffff;
+    --linkColor: #383347;
+    --text3: #52389b;
+    --text2: #494262;
+    --hoverBackground: rgba(211, 211, 211, 0.4);
+    --shadowColor: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+.dark {
+    --mainColor: #1a1a1a;
+    --textColor: #ffffff;
+    --Background: #2a2a2a;
+    --linkColor: #e0e0e0;
+    --CtrBackground: #3b3847;
+    --text2: #6148a7;
+    --text3: #d0adf8;
+    --B2: #222123;
+    --hoverBackground: rgba(100, 100, 100, 0.4);
+    --shadowColor: rgba(255, 255, 255, 0.1);
+}
+
 .about-us-section {
-    background-color: #D9D4E7;
+    background-color: var(--CtrBackground);
     padding: 20px 0px 70px;
 }
 
 h2 {
     font-family: 'Dancing Script', cursive !important;
+    color: var(--text);
     font-weight: bold;
 }
 
@@ -23,8 +51,8 @@ p {
     padding: 1rem 0;
     font-weight: bolder;
     position: relative;
-    text-align: left;
-    color: #4E4768;
+    text-align: center;
+    color: var(--text3);
 }
 
 .about-us-section .container {
@@ -38,7 +66,7 @@ p {
     margin: 0;
     gap: 20px;
     margin: 2rem auto;
-    background-color: #ffffff;
+    background-color: var(--B2);
     box-shadow: none;
 }
 
@@ -86,8 +114,8 @@ p {
     width: 100%;
     height: 100%;
     transition: .5s ease;
-    backdrop-filter: blur(3px) saturate(100%);
-
+    backdrop-filter: blur(3px) saturate(100%); 
+    -webkit-backdrop-filter: blur(3px) saturate(100%); /* For Safari support */
 }
 
 .overlay-1 {
@@ -101,7 +129,9 @@ p {
     height: 100%;
     transition: .5s ease;
     backdrop-filter: blur(3px) saturate(100%);
+    -webkit-backdrop-filter: blur(3px) saturate(100%);
 }
+
 
 .container:hover .overlay {
     width: 0;
@@ -110,6 +140,10 @@ p {
 .container:hover .overlay-1 {
     width: 0%;
     left: 100%;
+}
+
+.headD {
+    color: var(--text3);
 }
 
 .text {
@@ -158,8 +192,8 @@ p {
 .heading {
     font-size: 2rem;
     font-weight: 700;
-    color: #4e4768;
-    text-shadow: 2px 2px 2px #5e46bea8;
+    color: var(--text3);
+    text-shadow: 2px 2px 2px #3b278aa8;
     margin: 1rem 0;
 }
 
@@ -173,5 +207,5 @@ p {
 .content {
     font-size: 18px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(46, 46, 96);
+    color: var(--text2);
 }
