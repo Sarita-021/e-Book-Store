@@ -23,6 +23,13 @@
     color: whitesmoke;
 }
 
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .socials {
     list-style: none;
     display: flex;
