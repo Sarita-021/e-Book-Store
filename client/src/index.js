@@ -15,6 +15,12 @@ const store = configureStore({
 const darkMode = localStorage.getItem("darkMode") === "true";
 document.documentElement.classList.toggle("dark", darkMode); // Apply dark mode on load
 
+// Clear user session on window close
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem("islogin", false);
+    localStorage.clear();
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
