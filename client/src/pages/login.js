@@ -31,10 +31,11 @@ function Login(props) {
             }
             // if user data not found or incorrect 
             else {
-                toast.error(data.message);
+                toast.error(data.message);  //Displaying error message
             }
         } catch (error) {
             console.log(error);
+            toast.error("Something went wrong");
         }
     }
 

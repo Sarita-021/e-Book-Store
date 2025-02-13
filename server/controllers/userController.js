@@ -1,4 +1,4 @@
-const userModel = require('../models/userModel');
+const User = require('../models/userModel');
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const express = require('express')
@@ -21,7 +21,7 @@ exports.registerController = async (req, res) => {
         }
 
         // checking if user already exists
-        const exisitingUser = await userModel.findOne({ email })
+        const exisitingUser = await User.findOne({ email })
         if (exisitingUser) {
             return res.status(401).send({
                 success: false,
@@ -33,7 +33,7 @@ exports.registerController = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10)
 
         //saving new user to database with encrypted password
-        const user = new userModel({ username, email, password: hashedPassword })
+        const user = new User({ username, email, password: hashedPassword })
         await user.save()
         return res.status(201).send({
             success: true,
@@ -54,7 +54,7 @@ exports.registerController = async (req, res) => {
 //getting all users
 exports.getALLUsers = async (req, res) => {
     try {
-        const users = await userModel.find({})
+        const users = await User.find({})
         return res.status(200).send({
             userCount: users.length,
             success: true,
@@ -81,18 +81,18 @@ exports.loginController = async (req, res) => {
 
         //validating if user entered both
         if (!email || !password) {
-            return res.status(200).send({
+            return res.status(400).send({
                 success: false,
                 message: "Please enter email and password."
             })
         }
 
         // Checking if user exists or not
-        const user = await userModel.findOne({ email })   //Checking mail id in db
+        const user = await User.findOne({ email })   //Checking mail id in db
         console.log(user)
         if (!user) {    //handling if user does not exists
-            return res.status(200).send({
-                success: true,
+            return res.status(401).send({
+                success: false,
                 message: 'Email is not registered.'
             })
         }
@@ -105,11 +105,13 @@ exports.loginController = async (req, res) => {
                 message: 'Invalid email or password.',
             })
         }
-        return res.status(200).send({       //All credentials matched
-            success: true,                  //user ready for login
-            message: 'Login Successfully',
-            user
-        })
+        if (user && isMatch) {      //handling if user and password matches
+            return res.status(200).send({
+                success: true,
+                message: 'Login Successful',
+                user
+            })
+        }
     } catch (error) {                       //handling unexpected errors
         console.log(error)
         return res.status(500).send({
@@ -146,7 +148,7 @@ exports.OTPController = async (req, res) => {
         }
 
         // Checking if user already exists
-        const user = await userModel.findOne({ email })
+        const user = await User.findOne({ email })
         console.log(user)
         if (!user) {
             return res.status(200).send({
@@ -243,7 +245,7 @@ exports.updatePassword = async (req, res) => {
         }
 
         //finding user 
-        const user = await userModel.findOne({ email })
+        const user = await User.findOne({ email })
 
         //Password encryption
         const hashedPassword = await bcrypt.hash(password, 10)
