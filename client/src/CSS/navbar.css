@@ -36,7 +36,7 @@ header {
     top: 0px;
     left: 0px;
     /* right: 0px; */
-    width: 100%;
+    width: 100vw;
     z-index: 999;
     background-color: var(--navBackground);
     padding: 10px 10px;
@@ -88,7 +88,7 @@ header {
 #navbar .right-navigation {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 7px;
     position: relative;
     /* margin-right: 30px; */
 }
