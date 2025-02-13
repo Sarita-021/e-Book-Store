@@ -12,6 +12,9 @@ const store = configureStore({
     reducer: rootReducer,
 })
 
+const darkMode = localStorage.getItem("darkMode") === "true";
+document.documentElement.classList.toggle("dark", darkMode); // Apply dark mode on load
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>

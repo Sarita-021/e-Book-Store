@@ -25,25 +25,11 @@
     --shadowColor: rgba(255, 255, 255, 0.1);
 }
 
-.mainContainer {
-    margin-left: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.mainContainer .container {
-    border-radius: 12px;
-    text-align: left;
-    width: 80% !important;
-    position: relative;
-    margin: auto;
-    padding: 0;
-    overflow: hidden;
+.allbooksbackg{
     background-color: var(--Background);
-    transition: all 0.4s ease-out;
-    box-shadow: 2px 5px 10px rgba(145, 145, 145, 0.502);
-}
-
-.prof{
-    background-color: var(--CtrBackground);
-}
+  }
+  
+  .aBH1{
+    color: var(--textColor);
+    text-decoration-color: var(--textColor);
+  }

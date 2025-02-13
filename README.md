@@ -41,6 +41,15 @@ We welcome contributions from the community to enhance the project and make it e
 8. Push to the branch: `git push origin feature/your-feature-name`.
 9. Submit a pull request, and we'll review your changes.
 
+### SetUp Backend for Backend Contributors
+
+Set Up Environment Variables
+
+- Create a new file .env file in server folder and : `copy .env.example content to .env`
+- Make sure you are Running your MongoDB server, if not then run following command in terminal: `sudo mongod --dbpath=/Users/username/data/db`
+  replace username with your user name.
+- Make a new DataBase in your MongoDB namely : **Books** and add the following url to it `mongodb://localhost:27017/Books`.
+
 Please ensure your code follows the project's coding standards and conventions. Make sure you are aware of the tech stack used in the development.
 
 ## Contact

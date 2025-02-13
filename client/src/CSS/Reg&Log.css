@@ -1,3 +1,30 @@
+:root {
+    --mainColor: #f7f6f9;
+    --textColor: #130f40;
+    --Background: #ffffff;
+    --CtrBackground: #d9d4e7;
+    --B2: #ffffff;
+    --linkColor: #383347;
+    --text3: #52389b;
+    --text2: #494262;
+    --hoverBackground: rgba(211, 211, 211, 0.4);
+    --shadowColor: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+.dark {
+    --mainColor: #1a1a1a;
+    --textColor: #ffffff;
+    --Background: #2a2a2a;
+    --linkColor: #e0e0e0;
+    --CtrBackground: #3b3847;
+    --text2: #b3aacc;
+    --text3: #d0adf8;
+    --B2: #222123;
+    --hoverBackground: rgba(100, 100, 100, 0.4);
+    --shadowColor: rgba(255, 255, 255, 0.1);
+}
+
 .auth-form-container {
     position: relative;
     box-sizing: border-box;
@@ -6,8 +33,12 @@
 }
 
 body {
-    background-color: #080710;
+    background-color: var(--Background);
     position: relative;
+}
+
+.loginBody{
+    background-color: var(--CtrBackground)
 }
 
 .forgotPwd {
@@ -15,7 +46,7 @@ body {
 }
 
 .form {
-    background-color: rgba(255, 255, 255, 0.13);
+    background-color: var(--Background);
     position: relative;
     margin-top: 50px;
     margin-bottom: 100px;
@@ -41,6 +72,8 @@ body {
     width: 50%;
 }
 
+
+
 .change {
     position: absolute;
     top: 40px;
@@ -57,6 +90,11 @@ body {
     font-weight: bold;
     margin-top: 100px;
     font-size: 1.5rem;
+}
+
+.not{
+    transition: none;
+    color: var(--textColor);
 }
 
 .login-form h1,

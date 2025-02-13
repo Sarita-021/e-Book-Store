@@ -1,10 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
+:root {
+    --mainColor: #f7f6f9;
+    --textColor: #130f40;
+    --Background: #ffffff;
+    --CtrBackground: #d9d4e7;
+    --B2: #ffffff;
+    --linkColor: #383347;
+    --text3: #52389b;
+    --text2: #494262;
+    --hoverBackground: rgba(211, 211, 211, 0.4);
+    --shadowColor: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+.dark {
+    --mainColor: #1a1a1a;
+    --textColor: #ffffff;
+    --Background: #2a2a2a;
+    --linkColor: #e0e0e0;
+    --CtrBackground: #3b3847;
+    --text2: #b3aacc;
+    --text3: #d0adf8;
+    --B2: #222123;
+    --hoverBackground: rgba(100, 100, 100, 0.4);
+    --shadowColor: rgba(255, 255, 255, 0.1);
+}
+
 #header, #about-container {
     position: relative;
     margin: 20px;
     padding: 80px 90px;
-    background-color: #f7f6f9;
+    background-color: var(--Background);
     border-radius: 20px;
     display: flex;
     gap: 80px;
@@ -18,7 +45,7 @@
 .ctr {
     min-height: 100vh;
     padding: 10px;
-    background-color: #d9d4e7;
+    background-color: var(--CtrBackground);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -40,14 +67,14 @@
 }
 
 #header .left-header span {
-    color: #635985;
+    color: var(--text3);
     font-size: 18px;
     text-transform: capitalize;
 }
 
 #header .left-header h3 {
     padding-top: 10px;
-    color: #130f40;
+    color: var(--textColor);
     font-size: 35px;
     line-height: 40px;
     font-weight: bolder;
@@ -56,7 +83,7 @@
 
 #header .left-header p {
     padding: 10px 0px;
-    color: #494262;
+    color: var(--text2);
     font-size: 14px;
     line-height: 25px;
 }
@@ -67,14 +94,13 @@
     padding: 10px 15px;
     font-size: 18px;
     cursor: pointer;
-    color: white;
     background: linear-gradient(135deg, #494262, #6e6592);
     border-radius: 10px;
     border: none;
 }
 
 .ordbtn a {
-    color: #f7f6f9;
+    color: white;
     text-decoration: none;
 }
 
@@ -101,7 +127,7 @@
     padding: 10px 35px;
     text-align: center;
     border-radius: 15px;
-    background-color: #f7f6f9;
+    background-color: var(--B2);
     transition: all 0.4s ease-out;
 }
 
@@ -118,7 +144,7 @@
 
 #category-container .category-container-box h3 {
     font-size: 20px;
-    color: #130f40;
+    color: var(--textColor);
     white-space: nowrap;
 }
 
@@ -146,21 +172,21 @@
 }
 
 #about-container .right-about-container span {
-    color: #52389b;
+    color: var(--textColor);
     font-family: 'Satisfy', cursive;
     font-size: 30px;
     text-transform: capitalize;
 }
 
 #about-container .right-about-container h3 {
-    color: #130f40;
+    color: var(--textColor);
     padding-top: 10px;
     font-size: 30px;
     font-weight: bolder
 }
 
 #about-container .right-about-container p {
-    color: #494262;
+    color: var(--text2);
     padding: 15px 0px;
     line-height: 30px;
     font-size: 14px;
@@ -180,7 +206,7 @@
     padding: 10px 20px;
     display: flex;
     gap: 15px;
-    background-color: #edecf2;
+    background-color: var(--CtrBackground);
     border-radius: 15px;
     transition: all 0.4s ease;
     align-items: center;
@@ -213,20 +239,20 @@
 }
 
 #popular-container .popular-container-heading span {
-    color: #52389b;
+    color: var(--text3);
     font-family: 'Satisfy', cursive;
     font-size: 30px;
 }
 
 #popular-container .popular-container-heading h3 {
-    color: #130f40;
+    color: var(--textColor);
     font-size: 30px;
     font-weight: bold;
 }
 
 #popular-container .featured {
     padding: 30px 20px;
-    background-color: #ffffff;
+    background-color: var(--Background);
     border-radius: 30px;
     display: flex;
     flex-wrap: wrap;
