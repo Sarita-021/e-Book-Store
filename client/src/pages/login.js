@@ -17,27 +17,26 @@ function Login(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/login', {   //Calling Login Controller
-                email: inputs.email,                    //Sending email and password to backend to perform relevant actions
+            const { data } = await axios.post('https://e-book-store-ten.vercel.app/api/v1/user/login', {
+                email: inputs.email,
                 password: inputs.password
             });
             console.log(data);
-            window.sessionStorage.setItem("userdetails", JSON.stringify(data));    //Storing temporary data 
-            window.localStorage.setItem("islogin", true);                           // storing if login status is true or false
-            // login credentials found 
             if (data.success) {
-                toast.success(data.message)
-                navigate("/");              //After successfull login navigate to home screen
-            }
-            // if user data not found or incorrect 
-            else {
-                toast.error(data.message);  //Displaying error message
+                toast.success(data.message);
+                // Store login state in sessionStorage only
+                sessionStorage.setItem("userdetails", JSON.stringify(data));
+                sessionStorage.setItem("islogin", "true");
+                navigate("/");
+            } else {
+                toast.error(data.message);
             }
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong");
         }
-    }
+    };
+    
 
     //Constants for storig input variables
     const [inputs, setInputs] = useState({
