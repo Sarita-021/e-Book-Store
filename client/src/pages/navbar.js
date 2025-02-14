@@ -11,23 +11,24 @@ import { Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
 
-    let isLogin = localStorage.getItem('islogin');
+    let isLogin = sessionStorage.getItem('islogin');
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const darkMode = useSelector((state) => state.theme.darkMode);
 
-    console.log(localStorage.getItem('islogin'))
+    console.log(sessionStorage.getItem('islogin'))
 
     const handleLogout = () => {
         try {
-            localStorage.setItem("islogin", false)
+            // Clear sessionStorage (and any other necessary data)
+            sessionStorage.clear();
             toast.success("Logout Successfully");
             navigate("/login");
-            localStorage.clear();
         } catch (error) {
             console.log(error);
         }
     };
+    
 
     const [isHovered, setIsHovered] = useState(false);
 
