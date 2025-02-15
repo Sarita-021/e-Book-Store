@@ -192,6 +192,10 @@ body {
         position: absolute;
     }
 
+    .img-visible{
+        visibility: visible;
+    }
+
     .passwordCheckList li {
         position: relative;
         text-align: left;

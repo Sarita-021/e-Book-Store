@@ -51,7 +51,7 @@ const Navbar = () => {
 
 
     const [Mobile, setMobile] = useState(false)
-
+    console.log(Mobile)
 
     return (
         <header>
@@ -77,7 +77,7 @@ const Navbar = () => {
                             <div className="cart"><NavLink id="cart-btn" activeClassName="active" className="link" to="/collection"><ShoppingCartIcon /></NavLink></div>
                             <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                                 <NavLink activeClassName="active" className="profile" to="/profile">
-                                    <img className="pimg" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="profile" />
+                                    <img className="pimg img-visible" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="profile" />
                                 </NavLink>
                                 {isHovered && (
                                     <div className="phover">
@@ -94,22 +94,26 @@ const Navbar = () => {
                 
 
                 {!isLogin &&
-                    <>
-                        <div className={Mobile ? "hide middle-navigation" : "show middle-navigation"} onClick={() => setMobile(false)}>
-                            <ul>
-                                <li><NavLink exact activeClassName="active" className="link" to="/">Home</NavLink></li>
-                                <li><NavLink activeClassName="active" className="link" to="/about">About</NavLink></li>
-                                <li><NavLink activeClassName="active" className="link" to="/allbooks">All Books</NavLink></li>
-                            </ul>
-                        </div>
+                    <> 
+                       <div className={!Mobile ? "hide middle-navigation" : "show middle-navigation"} onClick={() => setMobile(false)}>
+                           <ul>
+                               <li><NavLink exact activeClassName="active" className="link" to="/">Home</NavLink></li>
+                               <li><NavLink activeClassName="active" className="link" to="/about">About</NavLink></li>
+                               <li><NavLink activeClassName="active" className="link" to="/allbooks">All Books</NavLink></li>
+                               <li><NavLink activeClassName="active" className="link show-on-mobile" to="/login">Login</NavLink></li>
+                               <li><NavLink activeClassName="active" className="link show-on-mobile" to="/register">Register</NavLink></li>
+                           </ul>
+                       </div>
                         
                         <div className="right-navigation">
                         <div onClick={() => dispatch(toggleDarkMode())} className="cursor-pointer">
                         {darkMode ? <Sun className="text-white" /> : <Moon className="text-black" />}
                                         </div>
-                            <div><NavLink id="login-btn" activeClassName="active" className="link" to="/login">Login</NavLink></div>
-                            <div><NavLink activeClassName="active" className="link" to="/register">Register</NavLink></div>
-                            <div id="menu-btn" onClick={() => setMobile(!Mobile)} className="menu-btn hide">{Mobile ? <MenuIcon /> : <CloseIcon />}</div>
+                            <div className="right-navigation-box">
+                                <div><NavLink id="login-btn" activeClassName="active" className="link" to="/login">Login</NavLink></div>
+                                <div><NavLink activeClassName="active" className="link" to="/register">Register</NavLink></div>
+                            </div>
+                            <div id="menu-btn" onClick={() => setMobile(!Mobile)} className="menu-btn hide">{!Mobile ? <MenuIcon /> : <CloseIcon />}</div>
                         </div>
                         
                     </>}

@@ -31,10 +31,10 @@ function Profile(props) {
                     <MDBCol lg="9" xl="7">
                         <MDBCard>
                             <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: '#000', height: '200px' }}>
-                                <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
+                                <div className="ms-4 mt-5 d-flex flex-column img-visible" style={{ width: '150px' }}>
                                     <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                                        alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
-                                    <MDBBtn outline color="dark" style={{ height: '36px', overflow: 'visible' }}>
+                                        alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail img-visible" fluid style={{ width: '150px', zIndex: '1' }} />
+                                    <MDBBtn outline color="dark" style={{ height: '36px', overflow: 'visible',border:"none" }}>
                                         <p style={{ color: 'black' }}>Edit profile</p>
                                     </MDBBtn>
                                 </div>
