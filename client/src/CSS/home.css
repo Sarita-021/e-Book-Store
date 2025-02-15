@@ -119,6 +119,7 @@
     overflow: scroll;
     margin-left: 100px;
     margin-right: 100px;
+    position: relative;
 }
 
 #category-container .category-container-box {

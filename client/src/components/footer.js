@@ -13,14 +13,12 @@ function Footer() {
             <div className="footer-content">
                 <h3>BooKraze</h3>
                 <p>Discover a World of Stories</p>
-                <div className="icons">
-                    <ul className="socials">
-                        <li><FacebookIcon /></li>
-                        <li><TwitterIcon /></li>
-                        <li><GoogleIcon /></li>
-                        <li><YouTubeIcon /></li>
-                        <li><LinkedInIcon /></li>
-                    </ul>
+                <div className="icons icons-div">
+                    <FacebookIcon />
+                    <TwitterIcon />
+                    <GoogleIcon />
+                    <YouTubeIcon />
+                    <LinkedInIcon />
                 </div>
                 <p className="copyright"> Copyright ⓒ {year}</p>
             </div>
