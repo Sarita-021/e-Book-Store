@@ -20,6 +20,12 @@ function Footer() {
                     <YouTubeIcon />
                     <LinkedInIcon />
                 </div>
+                <p className="contact-us">
+                    Contact Us: 
+                    <a href="mailto:stargang148241@gmail.com?subject=Inquiry&body=Hello, I would like to know more about your services.">
+                        stargang148241@gmail.com
+                    </a>
+                </p>
                 <p className="copyright"> Copyright ⓒ {year}</p>
             </div>
         </footer>
