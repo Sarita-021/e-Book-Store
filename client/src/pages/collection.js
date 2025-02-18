@@ -43,7 +43,7 @@ const Cart = () => {
 
     try {
       const { data } = await axios.post(
-        `http://localhost:4000/api/v1/order/create`,
+        `https://e-book-store-ten.vercel.app/api/v1/order/create`,
         {
           userId,
           bookId: item.bookId || item._id, // Handle different key names for bookId

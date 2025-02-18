@@ -18,7 +18,7 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4000/api/v1/order/${userId}`
+          `https://e-book-store-ten.vercel.app/api/v1/order/${userId}`
         );
 
         const ordersWithImages = await Promise.all(

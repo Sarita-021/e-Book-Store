@@ -65,32 +65,13 @@ const Navbar = () => {
             >
               <ul>
                 <li>
-                  <NavLink
-                    exact
-                    activeClassName="active"
-                    className="link"
-                    to="/"
-                  >
-                    Home
-                  </NavLink>
+                  <NavLink exact activeClassName="active" className="link" to="/" > Home </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    activeClassName="active"
-                    className="link"
-                    to="/about"
-                  >
-                    About
-                  </NavLink>
+                  <NavLink activeClassName="active" className="link" to="/about" > About </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    activeClassName="active"
-                    className="link"
-                    to="/allbooks"
-                  >
-                    All Books
-                  </NavLink>
+                  <NavLink activeClassName="active" className="link" to="/allbooks" > All Books </NavLink>
                 </li>
               </ul>
             </div>
@@ -107,25 +88,12 @@ const Navbar = () => {
                 )}
               </div>
               <div className="cart">
-                <NavLink
-                  id="cart-btn"
-                  activeClassName="active"
-                  className="link"
-                  to="/collection"
-                >
+                <NavLink id="cart-btn" activeClassName="active" className="link" to="/collection" >
                   <ShoppingCartIcon />
                 </NavLink>
               </div>
-              <div
-                className="relative"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <NavLink
-                  activeClassName="active"
-                  className="profile"
-                  to="/profile"
-                >
+              <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+                <NavLink activeClassName="active" className="profile" >
                   <img
                     className="pimg"
                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
@@ -134,31 +102,16 @@ const Navbar = () => {
                 </NavLink>
                 {isHovered && (
                   <div className="phover">
-                    <NavLink
-                      activeClassName="active"
-                      to="/profile"
-                      className="link"
-                    >
-                      {" "}
-                      Profile{" "}
-                    </NavLink>
-                    <NavLink
-                      activeClassName="active"
-                      onClick={handleLogout}
-                      className="link"
-                      to="/"
-                    >
-                      {" "}
-                      Logout{" "}
+                    <NavLink activeClassName="active" to="/profile" className="link" >
+                      {" "} Profile {" "}
                     </NavLink>
 
-                    <NavLink
-                      activeClassName="active"
-                      className="link"
-                      to="/my-orders"
-                    >
-                      {" "}
-                      MyOrders{" "}
+                    <NavLink activeClassName="active" onClick={handleLogout} className="link"  to="/" >
+                      {" "} Logout {" "}
+                    </NavLink>
+
+                    <NavLink activeClassName="active" className="link" to="/my-orders" >
+                      {" "} MyOrders {" "}
                     </NavLink>
                   </div>
                 )}
