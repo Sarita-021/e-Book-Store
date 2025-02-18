@@ -6,7 +6,6 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import axios from 'axios';
 import Testimonials from "./testimonial";
-// import Testimonials from "./testinomial";
 
 AOS.init({
     duration: 1200,
@@ -155,7 +154,7 @@ function Home() {
             </div>
 
             <div id="testimonial">
-                <Testimonials />
+              <Testimonials />
             </div>
         </div>
 

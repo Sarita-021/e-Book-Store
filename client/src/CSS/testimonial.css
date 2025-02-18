@@ -1,5 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
+:root {
+    --mainColor: #f7f6f9;
+    --textColor: #130f40;
+    --Background: #ffffff;
+    --CtrBackground: #d9d4e7;
+    --B2: #ffffff;
+    --linkColor: #383347;
+    --text3: #52389b;
+    --text2: #494262;
+    --hoverBackground: rgba(211, 211, 211, 0.4);
+    --shadowColor: rgba(0, 0, 0, 0.1);
+}
+.dark {
+    --mainColor: #1a1a1a;
+    --textColor: #ffffff;
+    --Background: #2a2a2a;
+    --linkColor: #e0e0e0;
+    --CtrBackground: #3b3847;
+    --text2: #b3aacc;
+    --text3: #d0adf8;
+    --B2: #222123;
+    --hoverBackground: rgba(100, 100, 100, 0.4);
+    --shadowColor: rgba(255, 255, 255, 0.1);
+}
+
 .testimonials-container {
     text-align: center;
     margin: 40px 0;
@@ -10,12 +35,12 @@
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #52389B;
+    color: var(--text3);
 }
 
 .testimonials-subheading {
     font-size: 1.5rem;
-    color: #130F40;
+    color: var(--textColor);
     font-style: italic;
     margin-bottom: 20px;
     position: relative;
@@ -27,7 +52,7 @@
     display: block;
     width: 60%;
     height: 2px;
-    background-color: #ccc;
+    background-color: var(--Background);
     margin: 5px auto 0;
 }
 
@@ -36,7 +61,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #fff;
+    background-color: var(--Background);
     width: 95%;
     padding: 4rem;
     margin: 0.5rem auto;
@@ -45,7 +70,7 @@
 }
 
 .testimonial-card {
-    background: #fff;
+    background: var(--CtrBackground);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     padding: 20px;
@@ -68,18 +93,18 @@
 
 .testimonial-feedback {
     font-style: italic;
-    color: #555;
+    color: var(--text2);
 }
 
 .testimonial-name {
     font-weight: bold;
     font-size: 16px;
     margin-top: 10px;
-    color: #130F40;
+    color: var(--textColor);
 }
 
 .testimonial-designation {
-    color: #52389B;
+    color: var(--text3);
     font-size: 14px;
 }
 
