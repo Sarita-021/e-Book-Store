@@ -18,7 +18,7 @@ function Login(props) {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/login",
+        "https://e-book-store-ten.vercel.app/api/v1/user/login",
         {
           email: inputs.email,
           password: inputs.password,
@@ -62,7 +62,7 @@ function Login(props) {
       const OTP = Math.floor(Math.random() * 9000 + 1000); //Generating OTP
       console.log(OTP);
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/send_recovery_email",
+        "https://e-book-store-ten.vercel.app/api/v1/user/send_recovery_email",
         {
           //Calling OTP Controller (Mailsender)
           email: inputs.email,

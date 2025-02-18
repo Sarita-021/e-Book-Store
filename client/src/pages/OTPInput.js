@@ -21,7 +21,7 @@ function OTPInput() {
     if (disable) return;
     const OTP = Math.floor(Math.random() * 9000 + 1000); // resend otp generation
     const { data } = await axios.post(
-      "http://localhost:4000/api/v1/user/send_recovery_email",
+      "https://e-book-store-ten.vercel.app/api/v1/user/send_recovery_email",
       {
         //Sending the details to backend to send mail to user
         email: recp_email,

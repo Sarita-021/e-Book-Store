@@ -26,7 +26,7 @@ function Register(props) {
       //matching password and confirm password
       try {
         const { data } = await axios.post(
-          "http://localhost:4000/api/v1/user/register",
+          "https://e-book-store-ten.vercel.app/api/v1/user/register",
           {
             // Calling register route
             username: inputs.name, //Sending username, email and password to backend to perform required actions
