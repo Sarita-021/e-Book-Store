@@ -15,6 +15,23 @@
     --shadowColor: rgba(0, 0, 0, 0.1);
 }
 
+::-webkit-scrollbar {
+    width: 0.8rem;
+    border-radius: 10px;
+    background-color: #D9D4E7;
+}
+::-webkit-scrollbar:hover {
+    background-color: #c3b8e0;
+}
+::-webkit-scrollbar-thumb {
+    box-shadow: 2px 2px 5px #55409B;
+    background: linear-gradient(45deg, #534C6F, #605880);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #6d6784, #534C6F);
+}
+
 /* Dark Mode */
 .dark {
     --mainColor: #1a1a1a;
