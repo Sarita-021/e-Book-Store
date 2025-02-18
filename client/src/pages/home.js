@@ -5,6 +5,8 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import axios from 'axios';
+import Testimonials from "./testimonial";
+// import Testimonials from "./testinomial";
 
 AOS.init({
     duration: 1200,
@@ -150,6 +152,10 @@ function Home() {
                 <div className="featured">
                     <Book item={item.slice(2, 6)} />
                 </div>
+            </div>
+
+            <div id="testimonial">
+                <Testimonials />
             </div>
         </div>
 
