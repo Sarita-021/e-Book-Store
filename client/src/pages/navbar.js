@@ -52,8 +52,9 @@ const Navbar = () => {
     <header>
       <div id="navbar">
         <div className="left-navigation dark:text-sky-400">
-          <i className="ri-store-2-line"></i>
-          BookRaze
+          <a href="/"><i className="ri-store-2-line"></i>
+          BookRaze</a>
+          
         </div>
         {isLogin && (
           <>
