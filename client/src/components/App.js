@@ -18,6 +18,8 @@ import Profile from "../pages/profile";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import Orders from "../pages/order";
+import ScrollToTopButton from "./ScrollToTopButton";
+
 export const RecoveryContext = createContext();
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -50,6 +52,7 @@ function App() {
           <Route path="/my-orders" element={<Orders />} />
         </Routes>
       </Router>
+      <ScrollToTopButton/>
       <Footer />
     </div>
   );
