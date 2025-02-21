@@ -56,6 +56,10 @@ header {
     font-size: 18px;
     font-weight: bolder;
 }
+#navbar .left-navigation a{
+    text-decoration: none;
+    color: var(--textColor);
+}
 
 .no-transition {
     transition: none !important;
