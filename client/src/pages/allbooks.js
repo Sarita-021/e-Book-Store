@@ -4,6 +4,7 @@ import Buttons from "./button";
 import { useEffect } from "react";
 import axios from "axios";
 import "../CSS/allbooks.css";
+import { IoSearchOutline } from "react-icons/io5";
 
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -75,6 +76,7 @@ function AllBooks() {
                 placeholder="Search book"
                 onChange={handleChange}
               />
+              <IoSearchOutline className="search-icon"/>
             </div>
           </div>
         </div>
