@@ -8,7 +8,7 @@
     --textColor: #130f40;
     --Background: #ffffff;
     --CtrBackground: #d9d4e7;
-    --B2: #ffffff;
+    --B1: #ffffff;
     --linkColor: #383347;
     --text3: #52389b;
     --text2: #494262;
@@ -25,7 +25,7 @@
     --CtrBackground: #3b3847;
     --text2: #6148a7;
     --text3: #d0adf8;
-    --B2:rgba(209, 201, 220, 0.4);
+    --B1:rgba(209, 201, 220, 0.4);
     --hoverBackground: rgba(100, 100, 100, 0.4);
     --shadowColor: rgba(255, 255, 255, 0.1);
 }
@@ -37,7 +37,7 @@
     justify-content: center;
     align-items: center;
     gap:3rem;
-    background-color: var(--B2);
+    background-color: var(--B1);
  
 }
 
