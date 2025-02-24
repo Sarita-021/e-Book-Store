@@ -34,7 +34,7 @@ We welcome contributions from the community to enhance the project and make it e
 1. Fork the repository and clone it to your local machine.
 2. Then open a new terminal and in main folder write command `npm i` .
 3. The 'cd client' and write again `npm i`.
-4. Now move to the main folder `cd ..` then to run the project write command `npm run dev`. 
+4. Now to open the development server run the command `npm start` in the `client` folder. 
 5. Create a new branch with a descriptive name: `git checkout -b feature/your-feature-name`.
 6. Make your changes and improvements.
 7. Commit your changes: `git commit -m "Add some feature"`.
