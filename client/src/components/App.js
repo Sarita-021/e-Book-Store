@@ -9,7 +9,6 @@ import Footer from "../components/footer";
 import AllBooks from "../pages/allbooks";
 import Collection from "../pages/collection";
 import About from "../pages/about";
-import FaqPage from "../pages/FaqPage";
 import AddBooks from "../pages/addBooks";
 import { useState, createContext } from "react";
 import OTPInput from "../pages/OTPInput";
@@ -51,7 +50,6 @@ function App() {
           <Route exact path="/addBooks" element={<AddBooks />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route path="/my-orders" element={<Orders />} />
-          <Route path="/faq" element={<FaqPage/>} />
         </Routes>
       </Router>
       <ScrollToTopButton/>

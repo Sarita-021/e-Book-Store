@@ -74,9 +74,6 @@ const Navbar = () => {
                 <li>
                   <NavLink activeClassName="active" className="link" to="/allbooks" > All Books </NavLink>
                 </li>
-                <li>
-                  <NavLink activeClassName="active" className="link" to="/faq">FAQ's</NavLink>
-                </li>
               </ul>
             </div>
 
