@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Book from "./book";
 import "../CSS/home.css";
 import AOS from "aos";
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
 import axios from 'axios';
 import Testimonials from "./testimonial";
 
@@ -13,13 +12,13 @@ AOS.init({
 
 function Home() {
 
-
     const [item, setItem] = useState([]);
+    const [currentCategory, setCurrentCategory] = useState(0);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const { data } = await axios.get('https://e-book-store-ten.vercel.app/api/v1/user/all-books');
-                // books_data = data;
                 setItem(data);
             } catch (error) {
                 console.error(error.message);
@@ -28,6 +27,26 @@ function Home() {
 
         fetchData();
     }, []);
+
+    const categories = [
+        { img: "./images/science-fiction.png", title: "Science Fiction" },
+        { img: "./images/horror.png", title: "Horror" },
+        { img: "./images/romance.png", title: "Romance" },
+        { img: "./images/classic.png", title: "Classic" },
+        { img: "./images/Fantasy.png", title: "Fantasy" },
+        { img: "./images/mystery.png", title: "Mystery" },
+        { img: "./images/Hystorical-Fiction.png", title: "Historical Fiction" },
+        { img: "./images/adventure.png", title: "Adventure" },
+        { img: "./images/drama.png", title: "Drama" },
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentCategory((prev) => (prev + 1) % categories.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, [categories.length]);
 
     return (
 
@@ -50,51 +69,18 @@ function Home() {
 
             {/* Category section */}
 
-            <div id="category-container">
-                <div className="category-container-box" data-aos="fade-up">
-                    <img src="./images/science-fiction.png" alt="Science fiction" />
-                    <h3>Science Fiction</h3>
-                </div>
-
-                <div className="category-container-box" data-aos="fade-down">
-                    <img src="./images/horror.png" alt="horror" />
-                    <h3>Horror</h3>
-                </div>
-
-                <div className="category-container-box" data-aos="fade-up">
-                    <img src="./images/romance.png" alt="romance" />
-                    <h3>Romance</h3>
-                </div>
-
-                <div className="category-container-box" data-aos="fade-down">
-                    <img src="./images/classic.png" alt="classic" />
-                    <h3>Classic</h3>
-                </div>
-
-                <div className="category-container-box" data-aos="fade-up">
-                    <img src="./images/Fantasy.png" alt="Fantasy" />
-                    <h3>Fantasy</h3>
-                </div>
-
-                <div className="category-container-box" data-aos="fade-down">
-                    <img src="./images/mystery.png" alt="mystery" />
-                    <h3>Mystery</h3>
-                </div>
-
-                <div className="category-container-box" data-aos="fade-up">
-                    <img src="./images/Hystorical-Fiction.png" alt="H-Fiction" />
-                    <h3>Historical Fiction</h3>
-                </div>
-
-                <div className="category-container-box" data-aos="fade-down">
-                    <img src="./images/adventure.png" alt="adventure" />
-                    <h3>Adventure</h3>
-                </div>
-
-                <div className="category-container-box" data-aos="fade-up">
-                    <img src="./images/drama.png" alt="drama" />
-                    <h3>Drama</h3>
-                </div>
+            <div id="category-container" className="category-row" style={{ display: 'flex', overflow: 'hidden' }}>
+                {categories.map((category, index) => (
+                    <div
+                        className="category-container-box"
+                        key={index}
+                        data-aos="fade-up"
+                        style={{ transform: `translateX(-${currentCategory * 100}%)`, transition: 'transform 0.5s ease-in-out', minWidth: '100%' }}
+                    >
+                        <img src={category.img} alt={category.title} />
+                        <h3>{category.title}</h3>
+                    </div>
+                ))}
             </div>
 
             {/* About container */}
@@ -106,7 +92,7 @@ function Home() {
 
                 <div className="right-about-container" data-aos="fade-left">
                     <span>What sets us apart from the rest?</span>
-                    <h3 className="title">The Elements that Spice up our Seading Journey??</h3>
+                    <h3 className="title">The Elements that Spice up our Reading Journey??</h3>
                     <p>Exceptional Book selection, Leave your Mark with Book Reviews, Easy Purchase Links, Create Your Personal Book Collection,
                         Advanced Book Filtering, Exclusive Titles available, Seamless browsing, User-friendly interface.
                         <br />Choose us for an Unforgettable Reading Experience.
@@ -163,4 +149,3 @@ function Home() {
 
 
 export default Home;
-
