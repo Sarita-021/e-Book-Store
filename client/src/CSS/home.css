@@ -109,47 +109,70 @@
 }
 
 /* category section */
-
 #category-container {
-    padding: 10px;
+    width: 60%;
+    padding: 20px;
     display: flex;
-    text-transform: capitalize;
-    /* justify-content: center; */
     align-items: center;
-    overflow: scroll;
-    margin-left: 100px;
-    margin-right: 100px;
+    justify-content: space-between;
+    overflow-x: scroll;
+    margin: 0 auto;
     position: relative;
+    border-radius: 15px;
+    background-color: var(--B1);
 }
 
+/* Styling for individual category boxes */
 #category-container .category-container-box {
     margin: 5px;
-    padding: 10px 35px;
+    padding: 15px 30px;
     text-align: center;
     border-radius: 15px;
     background-color: var(--B2);
-    transition: all 0.4s ease-out;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Hover effects */
 #category-container .category-container-box:hover {
     background-color: #d4cceae6;
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Styling for images */
 #category-container .category-container-box img {
-    display: inline-block;
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Scaling effect on hover */
+#category-container .category-container-box:hover img {
+    transform: scale(1.1);
+}
+
+/* Category heading styling */
 #category-container .category-container-box h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--textColor);
-    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 8px;
 }
 
+/* Hide scrollbar but allow scrolling */
 #category-container::-webkit-scrollbar {
-    display: none;
+    height: 8px;
+}
+
+#category-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#category-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* About-Container Section */
@@ -364,3 +387,4 @@
         width: 80%;
     }
 }
+
