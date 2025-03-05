@@ -5,6 +5,7 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 import axios from 'axios';
 import Testimonials from "./testimonial";
+import Loader from "../components/loader";
 
 AOS.init({
     duration: 1200,
@@ -14,16 +15,20 @@ function Home() {
 
     const [item, setItem] = useState([]);
     const [currentCategory, setCurrentCategory] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true); // Show loader when data fetching starts
             try {
                 const { data } = await axios.get('https://e-book-store-ten.vercel.app/api/v1/user/all-books');
                 setItem(data);
             } catch (error) {
-                console.error(error.message);
+                console.error("Error fetching data:", error.message);
+            } finally {
+                setLoading(false);  // Hide loader once data is fetched or error occurs
             }
-        }
+        };
 
         fetchData();
     }, []);
@@ -51,6 +56,8 @@ function Home() {
     return (
 
         <div className="ctr">
+
+            {loading && <Loader />} 
             {/* Header section */}
 
             <div id="header">
